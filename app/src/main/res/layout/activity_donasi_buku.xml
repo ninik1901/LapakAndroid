@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DonasiBuku">
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:background="@color/biru"
+        android:orientation="horizontal"
+        android:layout_width="411dp"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_black_24dp"/>
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="Donasi Buku"
+            android:textColor="@color/putih"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:text="! Pastikan melakukan pengajuan donasi
+        terlebih dahulu sebelum melakukan donasi buku maupun ebook"
+        android:background="@drawable/form2" />
+
+    <Button
+        android:id="@+id/pengajuan_donasi"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="48dp"
+        android:background="@color/biruMuda"
+        android:text="Pengajuan donasi" />
+
+    <Button
+        android:id="@+id/donasi_buku_cetak"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="48dp"
+        android:background="@color/biruMuda"
+        android:text="Donasi Buku cetak" />
+
+    <Button
+        android:id="@+id/donasi_ebook"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:layout_marginLeft="48dp"
+        android:background="@color/biruMuda"
+        android:text="Donasi Ebook" />
+
+    <Button
+        android:id="@+id/info_donasi"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="48dp"
+        android:background="@color/biruMuda"
+        android:text="Info donasi" />
+
+    <Button
+        android:id="@+id/ketentuan_donasi"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
+        android:layout_marginLeft="48dp"
+        android:background="@color/biruMuda"
+        android:text="Ketentuan donasi" />
+
+
+</RelativeLayout>
