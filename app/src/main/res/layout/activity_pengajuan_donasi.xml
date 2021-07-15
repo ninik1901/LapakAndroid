@@ -28,52 +28,103 @@
             android:textColor="@color/putih"/>
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="92dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
-        android:text="Deskripsi"
-        android:textColor="@color/black"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="75dp"
-        android:background="@drawable/form"
-        android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
+            android:text="DESKRIPSI DONASI"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="250dp"
-        android:text="Foto buku/ebook"
-        android:textColor="@color/black"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp">
 
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="275dp"
-        android:background="@drawable/form" />
+            <EditText
+                android:id="@+id/edt_judul_ebook"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Judul ebook/buku"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/edt_jumlah_donasi"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Jumlah donasi"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/edt_kategori_ebook"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Kategori ebook/buku"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:text="File ebook/cover buku"
+            android:textSize="8pt" />
+
+    </LinearLayout>
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="125dp"
-        android:layout_marginTop="325dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="314dp"
         android:background="@color/biruMuda"
         android:text="Pilih file"/>
+
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="305dp"
+        android:src="@drawable/form4"/>
+
 
     <Button
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="380dp"
         android:background="@color/biru"
         android:text="kirim"/>
-
 
 </RelativeLayout>
