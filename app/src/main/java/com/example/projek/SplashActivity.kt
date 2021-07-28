@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            startActivity(Intent(this, KomentarActivity::class.java))
+            startActivity(Intent(this, PengajuanDonasi::class.java))
             finish()
 
         }, 1000)

@@ -29,6 +29,7 @@
         <activity android:name=".EbookActivity" />
         <activity android:name=".JadwalLapak" />
         <activity android:name=".KomentarActivity"/>
+        <activity android:name=".PengajuanDonasi"/>
     </application>
 
 </manifest>
