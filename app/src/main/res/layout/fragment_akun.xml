@@ -154,19 +154,19 @@
 </LinearLayout>
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="60dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginTop="480dp"
-        android:layout_marginLeft="115dp"
+        android:layout_marginLeft="125dp"
         android:text="Ubah Profil"
         android:background="@color/biruMuda">
     </Button>
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="60dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginTop="550dp"
-        android:layout_marginLeft="115dp"
+        android:layout_marginLeft="125dp"
         android:text="Keluar"
         android:background="@color/biruMuda">
     </Button>

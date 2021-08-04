@@ -7,6 +7,7 @@
     tools:context=".DonasiBukuCetak">
 
     <RelativeLayout
+        android:id="@+id/rv_bukucetak"
         android:gravity="center_vertical"
         android:background="@color/biru"
         android:orientation="horizontal"
@@ -29,134 +30,68 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ly_cetak"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/rv_bukucetak"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="50dp"
-            android:text="IDENTITAS PENGIRIM"
-            android:textColor="@color/black" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="8pt"
+            android:text="Kirimkan donasi buku anda ke alamat berikut ini:Jl. K.H. Agus Salim
+No.5,Sobo,Kec. Banyuwangi,Kabupaten Banyuwangi, Jawa Timur (Depan Dinas Pendidikan Banyuwangi).
+"/>
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="15dp">
+            android:padding="10dp"
+            android:textSize="8pt"
+            android:text="Jika sudah mengirimkan buku melalui alamat diatas, silahkan
+melakukan konfirmasi pengiriman di bawah ini."
+            android:textColor="@color/black"/>
+    </LinearLayout>
 
-            <EditText
-                android:id="@+id/edt_alamat"
-                android:layout_width="280dp"
-                android:layout_height="45dp"
-                android:hint="Alamat"
-                android:paddingLeft="10dp"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <RelativeLayout
+        android:layout_below="@id/ly_cetak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:text="Foto bukti pengiriman"
+            android:textSize="8pt"
+            android:padding="5dp"/>
 
         <ImageView
-            android:layout_width="330dp"
-            android:layout_height="10dp"
-            android:src="@drawable/form3"
-            android:layout_marginLeft="15dp"/>
-    </LinearLayout>
+            android:layout_width="281dp"
+            android:layout_height="115dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/form4" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="150dp"
-            android:text="DESKRIPSI DONASI"
-            android:textColor="@color/black"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="15dp">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="65dp"
+            android:background="@color/biruMuda"
+            android:text="Pilih file" />
 
-            <EditText
-                android:id="@+id/edt_judul_buku"
-                android:layout_width="280dp"
-                android:layout_height="45dp"
-                android:hint="Judul buku"
-                android:paddingLeft="10dp"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="60dp"
+            android:background="@color/biru"
+            android:text="kirim"/>
+    </RelativeLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="15dp">
 
-            <EditText
-                android:id="@+id/edt_jumlah_donasi"
-                android:layout_width="280dp"
-                android:layout_height="45dp"
-                android:hint="Jumlah donasi"
-                android:paddingLeft="10dp"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="15dp">
-
-            <EditText
-                android:id="@+id/edt_kategori_buku"
-                android:layout_width="280dp"
-                android:layout_height="45dp"
-                android:hint="Kategori buku"
-                android:paddingLeft="10dp"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="94dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="350dp"
-        android:text="Cover buku"
-        android:textSize="8pt"/>
-
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="380dp"
-        android:layout_marginLeft="45dp"
-        android:src="@drawable/form4"/>
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="390dp"
-        android:layout_marginLeft="70dp"
-        android:background="@color/biruMuda"
-        android:text="Pilih file"/>
-
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="450dp"
-        android:background="@color/biru"
-        android:text="kirim"/>
 </RelativeLayout>
