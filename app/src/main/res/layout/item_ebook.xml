@@ -1,33 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="170dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="15dp"
-    android:layout_marginVertical="1dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp">
 
 
     <LinearLayout
         android:id="@+id/ly_1"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/img_ebook"
-            android:layout_width="170dp"
+            android:layout_width="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_height="170dp"
-            android:src="@drawable/buku2"/>
+            android:src="@drawable/buku2" />
 
         <ImageView
-            android:id="@+id/img_ebook1"
+            android:id="@+id/item_mata"
             android:layout_width="20dp"
             android:layout_height="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="7dp"
             android:layout_marginLeft="30dp"
-            android:src="@drawable/ic_remove_red_eye_black_24dp"/>
+            android:layout_marginBottom="7dp"
+            android:src="@drawable/ic_remove_red_eye_black_24dp" />
 
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Nama : "-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16sp" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/item_nama_pengarang"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Pengarang"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16sp" />-->
+        <!--        </LinearLayout>-->
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Jumlah Halaman : "-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16sp" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/item_jumlah_halaman"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Pengarang"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16sp" />-->
+        <!--        </LinearLayout>-->
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Jumlah Buku : "-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16sp" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/item_jumlah_buku"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Pengarang"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16sp" />-->
+        <!--        </LinearLayout>-->
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal">-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Tahun terbit : "-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16sp" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/item_tahun"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="Pengarang"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="16sp" />-->
+        <!--        </LinearLayout>-->
     </LinearLayout>
 
 

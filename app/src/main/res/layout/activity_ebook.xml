@@ -96,6 +96,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/v_line"
+        android:id="@+id/rv_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/activity_card_ebook"/>
