@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            startActivity(Intent(this, BacaEbook2::class.java))
+            startActivity(Intent(this, DonasiBukuCetak::class.java))
             finish()
 
         }, 1000)

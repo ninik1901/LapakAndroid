@@ -30,6 +30,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ly_cetak"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rv_bukucetak"
@@ -40,7 +41,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textSize="6pt"
+            android:textSize="8pt"
             android:text="Kirimkan donasi buku anda ke alamat berikut ini:Jl. K.H. Agus Salim
 No.5,Sobo,Kec. Banyuwangi,Kabupaten Banyuwangi, Jawa Timur (Depan Dinas Pendidikan Banyuwangi).
 "/>
@@ -48,9 +49,49 @@ No.5,Sobo,Kec. Banyuwangi,Kabupaten Banyuwangi, Jawa Timur (Depan Dinas Pendidik
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:textSize="8pt"
             android:text="Jika sudah mengirimkan buku melalui alamat diatas, silahkan
-melakukan konfirmasi pengiriman melalui tombol di bawah ini."/>
+melakukan konfirmasi pengiriman di bawah ini."
+            android:textColor="@color/black"/>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/ly_cetak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:text="Foto bukti pengiriman"
+            android:textSize="8pt"
+            android:padding="5dp"/>
+
+        <ImageView
+            android:layout_width="281dp"
+            android:layout_height="115dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/form4" />
+
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="65dp"
+            android:background="@color/biruMuda"
+            android:text="Pilih file" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="60dp"
+            android:background="@color/biru"
+            android:text="kirim"/>
+    </RelativeLayout>
 
 
 </RelativeLayout>
