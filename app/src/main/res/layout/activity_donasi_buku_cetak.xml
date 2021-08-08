@@ -42,17 +42,25 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="8pt"
-            android:text="Kirimkan donasi buku anda ke alamat berikut ini:Jl. K.H. Agus Salim
-No.5,Sobo,Kec. Banyuwangi,Kabupaten Banyuwangi, Jawa Timur (Depan Dinas Pendidikan Banyuwangi).
-"/>
+            android:text="Kirim COD"
+            android:textStyle="bold"
+            android:background="@color/biruTua"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             android:textSize="8pt"
-            android:text="Jika sudah mengirimkan buku melalui alamat diatas, silahkan
-melakukan konfirmasi pengiriman di bawah ini."
-            android:textColor="@color/black"/>
+            android:text="Pengiriman buku secara COD dapat dilakukan dengan mengiriman ke alamat berikut ini:Jl. K.H. Agus Salim No.5,Sobo,Kec. Banyuwangi,Kabupaten Banyuwangi, Jawa Timur (Depan Dinas Pendidikan Banyuwangi).
+Setelah mengirimkan buku, konfirmasi pengiriman dengan klik tombol di bawah ini"
+            android:textColor="@color/black" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/biru"
+            android:text="kirim"/>
     </LinearLayout>
 
     <RelativeLayout
@@ -63,31 +71,40 @@ melakukan konfirmasi pengiriman di bawah ini."
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="45dp"
-            android:text="Foto bukti pengiriman"
+            android:padding="10dp"
+            android:textColor="@color/black"
             android:textSize="8pt"
+            android:text="Kirim Paket"
+            android:textStyle="bold"
+            android:background="@color/biruTua"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:text="Tuliskan nomor resi pengiriman setelah mengirimkan buku melalui paket "
+            android:textSize="8pt"
+            android:textColor="@color/black"
             android:padding="5dp"/>
 
-        <ImageView
-            android:layout_width="281dp"
-            android:layout_height="115dp"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/form4" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="20dp">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="130dp"
-            android:layout_marginTop="65dp"
-            android:background="@color/biruMuda"
-            android:text="Pilih file" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="315dp"
+                android:layout_height="45dp"
+                android:hint="Nomor resi" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="170dp"
             android:layout_marginLeft="60dp"
             android:background="@color/biru"
             android:text="kirim"/>

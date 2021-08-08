@@ -29,6 +29,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ly_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -55,7 +56,8 @@
                 android:paddingLeft="10dp"
                 android:inputType="text"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="8pt"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -72,7 +74,8 @@
                 android:paddingLeft="10dp"
                 android:inputType="text"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="8pt"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -89,27 +92,28 @@
                 android:paddingLeft="10dp"
                 android:inputType="text"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="8pt"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="300dp"
+        <Spinner
+            android:id="@+id/sp_1"
+            android:layout_width="302dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="5dp"
+            android:entries="@array/jenis_buku"
+            android:padding="10dp">
+        </Spinner>
+    </LinearLayout>
 
-            <EditText
-                android:id="@+id/edt_jenis_buku"
-                android:layout_width="280dp"
-                android:layout_height="45dp"
-                android:hint="Jenis buku"
-                android:paddingLeft="10dp"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
+    <LinearLayout
+        android:id="@+id/ly_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ly_1">
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sinopsis"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -123,41 +127,52 @@
                 android:paddingLeft="10dp"
                 android:inputType="text"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textSize="8pt"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="380dp"
-        android:text="Foto cover buku"
-        android:textSize="8pt" />
+    <RelativeLayout
+        android:id="@+id/rv_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/sp_2"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="365dp"
+            android:entries="@array/pengiriman"
+            android:padding="10dp">
+        </Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="415dp"
+            android:text="Foto cover buku"
+            android:textSize="8pt" />
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="445dp"
+            android:src="@drawable/form4"/>
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="520dp"
+            android:background="@color/biru"
+            android:text="kirim"/>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="455dp"
+            android:background="@color/biruMuda"
+            android:text="Pilih file"/>
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="420dp"
-        android:background="@color/biruMuda"
-        android:text="Pilih file"/>
-
-
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="410dp"
-        android:src="@drawable/form4"/>
-
-
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="490dp"
-        android:background="@color/biru"
-        android:text="kirim"/>
+    </RelativeLayout>
 
 </RelativeLayout>

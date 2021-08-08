@@ -11,4 +11,21 @@
     <style name="AppTheme.AppBarOverlay"></style>
     <style name="AppTheme.PopupOverlay"></style>
 
+    <string-array name="jenis_buku">
+        <item>Jenis buku</item>
+        <item>Buku</item>
+        <item>Ebook</item>
+    </string-array>
+
+    <string-array name="pengiriman">
+        <item>Pilih pengiriman</item>
+        <item>COD</item>
+        <item>Paket</item>
+    </string-array>
+
+    <style name="text">
+        <item name="color">@color/abu</item>
+        <item name="android:textSize">8pt</item>
+    </style>
+
 </resources>
