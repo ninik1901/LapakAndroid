@@ -31,6 +31,7 @@
         <activity android:name=".KomentarActivity"/>
         <activity android:name=".PengajuanDonasi"/>
         <activity android:name=".DonasiBukuCetak"/>
+        <activity android:name=".Pdf"/>
     </application>
 
 </manifest>
