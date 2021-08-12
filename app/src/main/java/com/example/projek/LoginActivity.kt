@@ -42,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
             edt_password.requestFocus()
             return
         }
+        btn_masuk.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        }
 
         ApiConfig.instanceRetrofit.login(edt_email.text.toString(),edt_password.text.toString()).enqueue(object:
             Callback<ResponModel> {

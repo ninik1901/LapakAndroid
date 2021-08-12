@@ -10,10 +10,6 @@ import com.example.projek.databinding.ItemEbookBinding
 import com.example.projek.model.ResponModelEbook
 
 /**
- * Created by Dhimas Panji Sastra on
- * Copyright (c)  . All rights reserved.
- * Last modified $file.lastModified
- * Made With ❤ for U
  */
 class AdapterListEbook(
     private val dataset: List<ResponModelEbook.ModelEbook>,

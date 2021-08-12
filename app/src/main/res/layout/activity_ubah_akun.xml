@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.AkunFragment" >
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:background="@color/biru"
+        android:orientation="horizontal"
+        android:layout_width="411dp"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_black_24dp"/>
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="Ubah Profil"
+            android:textColor="@color/putih"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="138dp"
+            android:layout_height="143dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/ninik" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/edt_nama"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Nama"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="8pt"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Email"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="8pt"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/edt_alamat"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Alamat"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="8pt"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/edt_noTelp"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="No. Telp"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="8pt"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="280dp"
+                android:layout_height="45dp"
+                android:hint="Password"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="8pt"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="540dp"
+        android:background="@color/biruMuda"
+        android:text="Simpan Profil"></Button>
+
+</RelativeLayout>

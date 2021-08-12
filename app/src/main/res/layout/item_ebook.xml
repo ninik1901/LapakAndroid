@@ -27,10 +27,9 @@
             android:src="@drawable/buku2" />
 
         <ImageView
-            android:id="@+id/item_mata"
-            android:layout_width="20dp"
-            android:layout_height="10dp"
-            android:layout_marginLeft="30dp"
+            android:id="@+id/item_lihat"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
             android:layout_marginBottom="7dp"
             android:src="@drawable/ic_remove_red_eye_black_24dp" />
 

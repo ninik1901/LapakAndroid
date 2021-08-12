@@ -34,12 +34,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:src="@drawable/profil"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="138dp"
+            android:layout_height="143dp"
             android:layout_marginLeft="120dp"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="70dp"
+            android:src="@drawable/ninik" />
     </LinearLayout>
 
 
@@ -86,14 +86,14 @@
             android:layout_width="103dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:text="No.Telp"
+            android:text="Email"
             android:textSize="8pt" />
 
         <TextView
             android:layout_width="253dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:text="082141998551"
+            android:text="ninikw2000@gmail.com"
             android:textSize="8pt" />
     </LinearLayout>
 
@@ -110,14 +110,39 @@
             android:layout_width="103dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:text="Email"
+            android:text="Alamat"
             android:textSize="8pt" />
 
         <TextView
             android:layout_width="252dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:text="ninikw2000@gmail.com"
+            android:text="Bangorejo"
+            android:textSize="8pt" />
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#bbb"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="103dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:text="No. Telp"
+            android:textSize="8pt" />
+
+        <TextView
+            android:layout_width="252dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:text="082141998551"
             android:textSize="8pt" />
 
     </LinearLayout>
@@ -143,7 +168,7 @@
             android:layout_height="50dp"
             android:padding="10dp"
             android:text="123456"
-            android:textSize="8pt" />
+            android:textSize="8pt"/>
 
     </LinearLayout>
 
@@ -156,7 +181,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="520dp"
         android:layout_marginLeft="125dp"
         android:text="Ubah Profil"
         android:background="@color/biruMuda">
@@ -165,7 +190,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="580dp"
         android:layout_marginLeft="125dp"
         android:text="Keluar"
         android:background="@color/biruMuda">
