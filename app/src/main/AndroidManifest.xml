@@ -3,6 +3,8 @@
     package="com.example.projek">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +18,7 @@
         <activity android:name=".InfoDonasi" />
         <activity android:name=".BacaEbook2" />
         <activity android:name=".SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
@@ -28,9 +26,15 @@
         <activity android:name=".ResetPassword" />
         <activity android:name=".EbookActivity" />
         <activity android:name=".JadwalLapak" />
-        <activity android:name=".KomentarActivity"/>
-        <activity android:name=".PengajuanDonasi"/>
-        <activity android:name=".DonasiBukuCetak"/>
+        <activity android:name=".KomentarActivity" />
+        <activity android:name=".PengajuanDonasi">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DonasiBukuCetak" />
     </application>
 
 </manifest>
