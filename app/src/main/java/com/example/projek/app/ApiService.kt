@@ -1,7 +1,6 @@
 package com.example.projek.app
 
-import com.example.projek.model.ResponModel
-import com.example.projek.model.ResponModelEbook
+import com.example.projek.model.*
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -28,6 +27,21 @@ interface ApiService {
 
     @GET("tampil_ebook")
     fun getAllEbook(): Call<ResponModelEbook>
+
+    @GET("info_donasiebook")
+    fun getInfoEbook(): Call<ModelInfoDonasiEbook>
+
+    @GET("info_donasibuku")
+    fun getDonasibuku(): Call<ModelInfoDonasiBuku>
+
+    @GET("tampil_lapak")
+    fun getJadwallapak(): Call<ModeljadwalLapak>
+
+    @FormUrlEncoded
+    @POST("info_donasipengguna")
+    fun getDonasipengguna(
+        @Field("donatur_id") donatur_id: String
+    ): Call<ModelInfoPengguna>
 
     @FormUrlEncoded
     @POST("daftar_simpan")
