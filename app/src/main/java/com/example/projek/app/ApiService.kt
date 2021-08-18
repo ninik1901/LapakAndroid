@@ -76,7 +76,23 @@ interface ApiService {
         @Part("jumlah_buku") jumlah_buku: RequestBody?
     ): Call<ResponModel>
 
+    @FormUrlEncoded
+    @POST("pengguna/tampil_user")
+    fun userInfo(
+        @Field("pengguna_id") pengguna_id: String
+    ): Call<ModelUserInfo>
 
+
+    @FormUrlEncoded
+    @POST("pengguna/ubah_profiluser")
+    fun update_profil(
+        @Field("id") id: String,
+        @Field("nama") nama: String,
+        @Field("email") email: String,
+        @Field("alamat") alamat: String,
+        @Field("password") password: String,
+        @Field("nomor_telepon") nomor_telepon: String
+    ): Call<ResponModel>
 //    @Multipart
 //    @POST("/api/Accounts/editaccount")
 //    fun editUser(
