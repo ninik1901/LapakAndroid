@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AkunFragment" >
+    tools:context=".fragment.AkunFragment">
 
     <RelativeLayout
-        android:gravity="center_vertical"
-        android:background="@color/biru"
-        android:orientation="horizontal"
         android:layout_width="411dp"
-        android:layout_height="40dp">
+        android:layout_height="40dp"
+        android:background="@color/biru"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <ImageView
-            android:layout_margin="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu_black_24dp"/>
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_menu_black_24dp" />
 
         <TextView
             android:layout_width="160dp"
@@ -26,7 +24,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
             android:text="Profil"
-            android:textColor="@color/putih"/>
+            android:textColor="@color/putih" />
     </RelativeLayout>
 
 
@@ -43,156 +41,167 @@
     </LinearLayout>
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="250dp"
-    android:orientation="vertical">
-
-    <View android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#bbb"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginTop="250dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="103dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="Nama"
-            android:textSize="8pt" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#bbb" />
 
-        <TextView
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="Ninik Wulandari"
-            android:textSize="8pt" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="103dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Nama"
+                android:textSize="8pt" />
+
+            <TextView
+                android:id="@+id/nama_user"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Ninik Wulandari"
+                android:textSize="8pt" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#bbb" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="103dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Email"
+                android:textSize="8pt" />
+
+            <TextView
+                android:id="@+id/email_user"
+                android:layout_width="253dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="ninikw2000@gmail.com"
+                android:textSize="8pt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#bbb" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="103dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Alamat"
+                android:textSize="8pt" />
+
+            <TextView
+                android:id="@+id/alamat_user"
+                android:layout_width="252dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Bangorejo"
+                android:textSize="8pt" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#bbb" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="103dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="No. Telp"
+                android:textSize="8pt" />
+
+            <TextView
+                android:id="@+id/notelp_user"
+                android:layout_width="252dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="082141998551"
+                android:textSize="8pt" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#bbb" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="103dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Password"
+                android:textSize="8pt" />
+
+            <TextView
+                android:layout_width="252dp"
+                android:layout_height="50dp"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:text="123456"
+                android:textSize="8pt" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#bbb" />
 
     </LinearLayout>
-    <View android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#bbb"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="103dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="Email"
-            android:textSize="8pt" />
-
-        <TextView
-            android:layout_width="253dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="ninikw2000@gmail.com"
-            android:textSize="8pt" />
-    </LinearLayout>
-
-    <View android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#bbb"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="103dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="Alamat"
-            android:textSize="8pt" />
-
-        <TextView
-            android:layout_width="252dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="Bangorejo"
-            android:textSize="8pt" />
-
-    </LinearLayout>
-
-    <View android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#bbb"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="103dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="No. Telp"
-            android:textSize="8pt" />
-
-        <TextView
-            android:layout_width="252dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="082141998551"
-            android:textSize="8pt" />
-
-    </LinearLayout>
-
-    <View android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#bbb"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="103dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="Password"
-            android:textSize="8pt" />
-
-        <TextView
-            android:layout_width="252dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:text="123456"
-            android:textSize="8pt"/>
-
-    </LinearLayout>
-
-    <View android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#bbb"/>
-
-</LinearLayout>
 
     <Button
+        android:id="@+id/btn_ubah"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="125dp"
         android:layout_marginTop="520dp"
-        android:layout_marginLeft="125dp"
-        android:text="Ubah Profil"
-        android:background="@color/biruMuda">
-    </Button>
+        android:background="@color/biruMuda"
+        android:text="Ubah Profil" />
 
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="580dp"
         android:layout_marginLeft="125dp"
-        android:text="Keluar"
-        android:background="@color/biruMuda">
-    </Button>
+        android:layout_marginTop="580dp"
+        android:background="@color/biruMuda"
+        android:text="Keluar"></Button>
 </RelativeLayout>
