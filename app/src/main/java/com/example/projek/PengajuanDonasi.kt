@@ -37,7 +37,7 @@ class PengajuanDonasi : AppCompatActivity() {
     var selectedImage: Uri? = null
     private lateinit var binding: ActivityPengajuanDonasiBinding
     var pilihan =
-        arrayOf("Pilih Kategori", "Ebook", "Buku")
+        arrayOf("Jenis Buku", "Ebook", "Buku")
     var kirim =
         arrayOf("Pilih Pengiriman", "COD", "Paket")
     var paket: String = ""
@@ -327,3 +327,4 @@ class PengajuanDonasi : AppCompatActivity() {
 
     }
 }
+

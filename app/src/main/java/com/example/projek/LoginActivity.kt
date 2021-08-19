@@ -46,14 +46,24 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         }
 
-        ApiConfig.instanceRetrofit.login(edt_email.text.toString(),edt_password.text.toString()).enqueue(object:
-            Callback<ResponModel> {
+        ApiConfig.instanceRetrofit.login(edt_email.text.toString(),edt_password.text.toString()).enqueue(object: Callback<ResponModel> {
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(this@LoginActivity, "Error:"+t.message, Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+
+                val respon = response.body()!!
+
+                if (respon.success == 1){
+                    Toast.makeText(this@LoginActivity, "Success:"+respon.message, Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this@LoginActivity, "Error:"+respon.message, Toast.LENGTH_SHORT).show()
                 }
+            }
+
+
         })
     }
 }

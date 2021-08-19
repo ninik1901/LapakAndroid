@@ -15,9 +15,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".BacaEbook"></activity>
-        <activity android:name=".InfoDonasi">
-
-        </activity>
+        <activity android:name=".InfoDonasi" />
         <activity android:name=".BacaEbook2" />
         <activity android:name=".SplashActivity">
 
@@ -27,16 +25,14 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".EbookActivity" />
-        <activity android:name=".JadwalLapak">
+        <activity android:name=".JadwalLapak" />
+        <activity android:name=".KomentarActivity" />
+        <activity android:name=".PengajuanDonasi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".KomentarActivity" />
-        <activity android:name=".PengajuanDonasi">
-
         </activity>
         <activity android:name=".DonasiBukuCetak" />
     </application>

@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home"
+    app:startDestination="@+id/nav_home"
     tools:ignore="UnusedNavigation">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/nav_home"
         android:name="com.example.projek.fragment.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_daftarsimpan"
         android:name="com.example.projek.fragment.SimpanFragment"
         android:label="@string/title_simpan"
         tools:layout="@layout/fragment_simpan" />
@@ -29,4 +29,16 @@
         android:name="com.example.projek.fragment.AkunFragment"
         android:label="@string/title_akun"
         tools:layout="@layout/fragment_akun" />
+
+    <fragment
+        android:id="@+id/nav_donasiBuku"
+        android:name="com.example.projek.DonasiBuku"
+        android:label="@string/title_donasi"
+        tools:layout="@layout/activity_donasi_buku" />
+
+    <fragment
+        android:id="@+id/nav_jadwal"
+        android:name="com.example.projek.JadwalLapak"
+        android:label="@string/title_jadwal"
+        tools:layout="@layout/activity_jadwal_lapak" />
 </navigation>

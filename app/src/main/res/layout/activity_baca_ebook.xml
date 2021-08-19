@@ -69,7 +69,7 @@
             android:layout_width="69dp"
             android:layout_height="wrap_content"
             android:padding="3dp"
-            android:text="100K" />
+            android:text="3" />
     </LinearLayout>
 
     <LinearLayout

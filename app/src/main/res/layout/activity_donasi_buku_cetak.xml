@@ -6,34 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".DonasiBukuCetak">
 
-    <RelativeLayout
-        android:id="@+id/rv_bukucetak"
-        android:gravity="center_vertical"
-        android:background="@color/biru"
-        android:orientation="horizontal"
-        android:layout_width="411dp"
-        android:layout_height="40dp">
-
-        <ImageView
-            android:layout_margin="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_back_black_24dp"/>
-
-        <TextView
-            android:layout_width="193dp"
-            android:layout_height="37dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:text="Donasi Buku Cetak"
-            android:textColor="@color/putih" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/ly_cetak"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rv_bukucetak"
+        android:background="@color/biru"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Donasi Buku Cetak"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_cetakAlamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/appBarLayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textSize="8pt"
+            android:text="Alamat pengiriman secara COD ataupun paket :Jl. K.H. Agus Salim No.5,Sobo,Kec. Banyuwangi,Kabupaten Banyuwangi, Jawa Timur (Depan Dinas Pendidikan Banyuwangi)."
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_cod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ly_cetakAlamat"
         android:orientation="vertical">
 
         <TextView
@@ -45,26 +64,46 @@
             android:text="Kirim COD"
             android:textStyle="bold"
             android:background="@color/biruTua"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:text="Setelah melakukan pengiriman secara COD kirimkan bukti di bawah ini."
             android:textSize="8pt"
-            android:text="Pengiriman buku secara COD dapat dilakukan dengan mengiriman ke alamat berikut ini:Jl. K.H. Agus Salim No.5,Sobo,Kec. Banyuwangi,Kabupaten Banyuwangi, Jawa Timur (Depan Dinas Pendidikan Banyuwangi).
-Setelah mengirimkan buku, konfirmasi pengiriman dengan klik tombol di bawah ini"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="50dp"
+            />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:src="@drawable/form4"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="30dp"/>
 
         <Button
+            android:id="@+id/pilih_file"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@color/biruMuda"
+            android:text="Pilih file"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="125dp"/>
+
+
+        <Button
+            android:id="@+id/btn_cod"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="200dp"
             android:background="@color/biru"
             android:text="kirim"/>
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
-        android:layout_below="@id/ly_cetak"
+        android:layout_below="@id/rl_cod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -92,16 +131,23 @@ Setelah mengirimkan buku, konfirmasi pengiriman dengan klik tombol di bawah ini"
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="105dp"
+            android:layout_marginTop="115dp"
             android:layout_marginLeft="20dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="315dp"
+            <EditText
+                android:id="@+id/edt_nomor_resi"
+                android:layout_width="280dp"
                 android:layout_height="45dp"
-                android:hint="Nomor resi" />
+                android:hint="Nomor resi"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textSize="8pt" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_paket"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="170dp"

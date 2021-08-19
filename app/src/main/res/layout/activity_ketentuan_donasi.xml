@@ -98,11 +98,11 @@
     </ImageView>
 
     <TextView
-        android:layout_width="245dp"
-        android:layout_height="56dp"
+        android:layout_width="263dp"
+        android:layout_height="135dp"
         android:layout_marginLeft="75dp"
         android:layout_marginTop="215dp"
-        android:text="Kategori buku yang dapat didonasikan adalah kategori pendidikan, anak-anak, novel"
+        android:text="Kategori buku yang dapat didonasikan adalah kategori marketing,novel,cerpen,memoar esai,agama,budaya,parenting,pengetahuan,hobi,motivasi,puisi,rujukan,politik,sastra,biografi,pendidikan,bahasa,psikologi,filsafat"
         android:textColor="@color/black"></TextView>
 
 

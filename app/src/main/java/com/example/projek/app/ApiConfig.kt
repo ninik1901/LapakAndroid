@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiConfig {
-    private const val BASE_URL = "https://ninik.panjisastra.my.id/api/"
+    private const val BASE_URL = "http://192.168.1.44/projectta/public/api/pengguna/"
     const val BASE_URL_FILE = "http://192.168.1.44/projectta/public/file/ebook/"
     private val client: Retrofit
         get() {

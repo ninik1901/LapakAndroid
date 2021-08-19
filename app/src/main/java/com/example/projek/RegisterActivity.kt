@@ -66,9 +66,9 @@ class RegisterActivity : AppCompatActivity() {
                 val respon = response.body()!!
 
                 if (respon.success == 1){
-                    Toast.makeText(this@RegisterActivity, "Success:"+respon.message, Toast.LENGTH_SHORT).show()
-                }else{
                     Toast.makeText(this@RegisterActivity, "Error:"+respon.message, Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this@RegisterActivity, "Success:"+respon.message, Toast.LENGTH_SHORT).show()
                 }
             }
 
