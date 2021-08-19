@@ -22,16 +22,16 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
-//   private val fragmentHome: Fragment = HomeFragment()
-//   private val fragmentSimpan: Fragment = SimpanFragment()
-//   private val fragmentNotif: Fragment = NotifFragment()
-//   private val fragmentAkun: Fragment = AkunFragment()
-//   private val fm: FragmentManager = supportFragmentManager
-//   private var active:Fragment =fragmentHome
-//
-//    private lateinit var menu: Menu
-//    private lateinit var menuItem: MenuItem
-//    private lateinit var bottomNavigationView: BottomNavigationView
+   private val fragmentHome: Fragment = HomeFragment()
+   private val fragmentSimpan: Fragment = SimpanFragment()
+   private val fragmentNotif: Fragment = NotifFragment()
+   private val fragmentAkun: Fragment = AkunFragment()
+   private val fm: FragmentManager = supportFragmentManager
+   private var active:Fragment =fragmentHome
+
+    private lateinit var menu: Menu
+    private lateinit var menuItem: MenuItem
+    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-//        setUpBottomNav()
+        setUpBottomNav()
 
     }
 
@@ -63,42 +63,42 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-//    fun setUpBottomNav(){
-//        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentHome).show(fragmentHome).commit()
-//        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentSimpan).hide(fragmentSimpan).commit()
-//        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentNotif).hide(fragmentNotif).commit()
-//        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentAkun).hide(fragmentAkun).commit()
-//
-//        bottomNavigationView = findViewById(R.id.bottom_nav_view)
-//        menu = bottomNavigationView.menu
-//        menuItem = menu.getItem(0)
-//        menuItem.isChecked = true
-//
-//        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-//            when(item.itemId){
-//                R.id.nav_home -> {
-//                    callFragment(0, fragmentHome)
-//                }
-//                R.id.navigation_simpan -> {
-//                    callFragment(1, fragmentSimpan)
-//                }
-//                R.id.navigation_notifications -> {
-//                    callFragment(2, fragmentNotif)
-//                }
-//                R.id.navigation_akun -> {
-//                    callFragment(3, fragmentAkun)
-//                }
-//            }
-//
-//            false
-//        }
-//
-//    }
-//
-//    fun callFragment(int: Int, fragment: Fragment){
-//        menuItem = menu.getItem(int)
-//        menuItem.isChecked = true
-//        fm.beginTransaction().hide(active).show(fragment).commit()
-//        active = fragment
-//    }
+    fun setUpBottomNav(){
+        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentHome).show(fragmentHome).commit()
+        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentSimpan).hide(fragmentSimpan).commit()
+        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentNotif).hide(fragmentNotif).commit()
+        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentAkun).hide(fragmentAkun).commit()
+
+        bottomNavigationView = findViewById(R.id.bottom_nav_view)
+        menu = bottomNavigationView.menu
+        menuItem = menu.getItem(0)
+        menuItem.isChecked = true
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.nav_home -> {
+                    callFragment(0, fragmentHome)
+                }
+                R.id.navigation_simpan -> {
+                    callFragment(1, fragmentSimpan)
+                }
+                R.id.navigation_notifications -> {
+                    callFragment(2, fragmentNotif)
+                }
+                R.id.navigation_akun -> {
+                    callFragment(3, fragmentAkun)
+                }
+            }
+
+            false
+        }
+
+    }
+
+    fun callFragment(int: Int, fragment: Fragment){
+        menuItem = menu.getItem(int)
+        menuItem.isChecked = true
+        fm.beginTransaction().hide(active).show(fragment).commit()
+        active = fragment
+    }
 }
