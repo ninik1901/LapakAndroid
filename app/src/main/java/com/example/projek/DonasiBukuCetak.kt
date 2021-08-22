@@ -9,11 +9,11 @@ import android.database.Cursor
 import android.graphics.Color
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.loader.content.CursorLoader
@@ -56,8 +56,8 @@ class DonasiBukuCetak : AppCompatActivity() {
 
         binding.btnCod.setOnClickListener {
             selectedImage?.let {
-                uploadFile(
-                )
+//                uploadFile(
+//                )
 
             }
         }

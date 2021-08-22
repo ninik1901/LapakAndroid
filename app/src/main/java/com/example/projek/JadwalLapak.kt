@@ -1,6 +1,5 @@
 package com.example.projek
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,10 +19,6 @@ class JadwalLapak : Fragment() {
     private lateinit var adapterListLapak: AdapterListLapak
     private var listJadwal: ArrayList<ModeljadwalLapak.Lapak> = ArrayList()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = ActivityJadwalLapakBinding.bind(view)
@@ -40,9 +35,9 @@ class JadwalLapak : Fragment() {
 
                 if (response.isSuccessful) {
                     response.body()?.lapak?.let { listJadwal.addAll(it) }
-                    adapterListLapak = AdapterListLapak(listJadwal, this@JadwalLapak)
+                    adapterListLapak = AdapterListLapak(listJadwal)
                     binding.rvJadwalLapak.apply {
-                        layoutManager = LinearLayoutManager(this@JadwalLapak)
+                        layoutManager = LinearLayoutManager(requireActivity())
                         adapter = adapterListLapak
                         setHasFixedSize(true)
                     }
@@ -57,6 +52,6 @@ class JadwalLapak : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.activity_jadwal_lapak, container, false)
     }
 }
