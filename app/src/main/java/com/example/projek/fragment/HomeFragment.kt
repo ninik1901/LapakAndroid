@@ -9,10 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.projek.R
+import com.example.projek.adapter.AdapterImageSlider
 import com.example.projek.adapter.AdapterListEbook
+import com.example.projek.adapter.AdapterListKategori
 import com.example.projek.app.ApiConfig
 import com.example.projek.databinding.FragmentHomeBinding
+import com.example.projek.model.ModelImageSlider
 import com.example.projek.model.ResponModelEbook
+import com.example.projek.model.ResponseKategori
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +31,10 @@ class HomeFragment : Fragment() {
     lateinit var rvEbook: RecyclerView
     lateinit var binding: FragmentHomeBinding
     private lateinit var adapterListEbook: AdapterListEbook
+    private lateinit var adapterListKategori: AdapterListKategori
     private var listEbook: ArrayList<ResponModelEbook.ModelEbook> = ArrayList()
+    private var listKategori: ArrayList<ResponseKategori.ModelKategori> = ArrayList()
+    var listImage: ArrayList<ModelImageSlider> = ArrayList()
 
 
     override fun onCreateView(
@@ -36,9 +43,13 @@ class HomeFragment : Fragment() {
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
-        vpSlider = view.findViewById(R.id.vp_slider)
-        rvEbook = view.findViewById(R.id.rv_Ebook)
-
+//        vpSlider = view.findViewById(R.id.vp_slider)
+//        rvEbook = view.findViewById(R.id.rv_Ebook)
+        listImage.add(ModelImageSlider("https://cdn.pixabay.com/photo/2016/10/14/16/38/book-1740512_960_720.png"))
+        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp4664615.jpg"))
+        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp8483511.jpg"))
+        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp1850842.png"))
+        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp8483514.png"))
 //
 //        val arraySlider= ArrayList<Int>()
 //        arraySlider.add(R.drawable.buku1)
@@ -62,6 +73,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
+        val adapterImageSlider = AdapterImageSlider(requireActivity(), listImage)
+        binding.imageSlider.setSliderAdapter(adapterImageSlider)
+
+        getEbook()
+        getKategori()
+
+    }
+
+    fun getEbook() {
         ApiConfig.instanceRetrofit.getAllEbook().enqueue(object : Callback<ResponModelEbook> {
             override fun onFailure(call: Call<ResponModelEbook>, t: Throwable) {
 
@@ -86,27 +106,30 @@ class HomeFragment : Fragment() {
         }
 
         )
-
-
     }
-//    val arrayEbook: ArrayList<Ebook>get(){
-//        val arr = ArrayList<Ebook>()
-//        val p1 = Ebook()
-//        p1.gambar = R.drawable.buku1
-//
-//        val p2 = Ebook()
-//        p2.gambar = R.drawable.buku2
-//
-//        val p3 = Ebook()
-//        p3.gambar = R.drawable.buku3
-//
-//
-//        arr.add(p1)
-//        arr.add(p2)
-//        arr.add(p3)
-//
-//        return arr
-//    }
 
+    fun getKategori() {
+        ApiConfig.instanceRetrofit.getKategori().enqueue(object : Callback<ResponseKategori> {
+            override fun onFailure(call: Call<ResponseKategori>, t: Throwable) {
+
+            }
+
+            override fun onResponse(
+                call: Call<ResponseKategori>,
+                response: Response<ResponseKategori>
+            ) {
+                if (response.isSuccessful && response.body()!!.kategori.isNotEmpty()) {
+                    listKategori.addAll(response.body()!!.kategori)
+
+                    adapterListKategori = AdapterListKategori(listKategori, requireActivity())
+                    binding.ktEbook.apply {
+                        layoutManager =
+                            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+                        adapter = adapterListKategori
+                    }
+                }
+            }
+        })
+    }
 
 }

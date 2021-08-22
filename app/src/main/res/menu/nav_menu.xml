@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group>
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/home"
-            android:title="Beranda"/>
-        <item
-            android:id="@+id/nav_donasiBuku"
-            android:icon="@drawable/book"
-            android:title="Donasi Buku"/>
-        <item
-            android:id="@+id/nav_ebook"
-            android:icon="@drawable/read_book"
-            android:title="Ebook"/>
-        <item
-            android:id="@+id/nav_profilLapak"
-            android:icon="@drawable/information"
-            android:title="Profil Lapak"/>
-        <item
-            android:id="@+id/nav_jadwal"
-            android:icon="@drawable/calendar"
-            android:title="Jadwal Lapak"/>
-    </group>
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="Beranda"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/nav_donasiBuku"
+        android:icon="@drawable/book"
+        android:title="Donasi Buku" />
+    <item
+        android:id="@+id/nav_ebook"
+        android:icon="@drawable/read_book"
+        android:title="Ebook"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/nav_profilLapak"
+        android:icon="@drawable/information"
+        android:title="Profil Lapak" />
+    <item
+        android:id="@+id/nav_jadwal"
+        android:icon="@drawable/calendar"
+        android:title="Jadwal Lapak" />
+    <item
+        android:id="@+id/nav_simpan"
+        android:icon="@drawable/ic_library_books_black_24dp"
+        android:title="@string/title_simpan" />
+
+
+    <item
+        android:id="@+id/nav_akun"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/title_akun" />
+
 </menu>

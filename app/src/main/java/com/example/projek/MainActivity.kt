@@ -1,9 +1,10 @@
 package com.example.projek
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -22,12 +23,12 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
-   private val fragmentHome: Fragment = HomeFragment()
-   private val fragmentSimpan: Fragment = SimpanFragment()
-   private val fragmentNotif: Fragment = NotifFragment()
-   private val fragmentAkun: Fragment = AkunFragment()
-   private val fm: FragmentManager = supportFragmentManager
-   private var active:Fragment =fragmentHome
+    private val fragmentHome: Fragment = HomeFragment()
+    private val fragmentSimpan: Fragment = SimpanFragment()
+    private val fragmentNotif: Fragment = NotifFragment()
+    private val fragmentAkun: Fragment = AkunFragment()
+    private val fm: FragmentManager = supportFragmentManager
+    private var active: Fragment = fragmentHome
 
     private lateinit var menu: Menu
     private lateinit var menuItem: MenuItem
@@ -48,13 +49,22 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_donasiBuku, R.id.nav_ebook, R.id.nav_profilLapak, R.id.nav_jadwal
+                R.id.nav_home,
+                R.id.nav_donasiBuku,
+                R.id.nav_ebook,
+                R.id.nav_profilLapak,
+                R.id.nav_jadwal,
+                R.id.navigation_notifications,
+                R.id.nav_akun,
+                R.id.nav_simpan
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
+//        NavigationUI.setupActionBarWithNavController(this@MainActivity,navController,appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        setUpBottomNav()
+//        setUpBottomNav()
+//        bottomNavigationView = findViewById(R.id.bottom_nav_view)
+//        NavigationUI.setupWithNavController(bottomNavigationView,navController)
 
     }
 
@@ -63,42 +73,58 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    fun setUpBottomNav(){
-        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentHome).show(fragmentHome).commit()
-        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentSimpan).hide(fragmentSimpan).commit()
-        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentNotif).hide(fragmentNotif).commit()
-        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentAkun).hide(fragmentAkun).commit()
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.bottom_nav_menu, menu)
 
-        bottomNavigationView = findViewById(R.id.bottom_nav_view)
-        menu = bottomNavigationView.menu
-        menuItem = menu.getItem(0)
-        menuItem.isChecked = true
+        return true
+    }
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            when(item.itemId){
-                R.id.nav_home -> {
-                    callFragment(0, fragmentHome)
-                }
-                R.id.navigation_simpan -> {
-                    callFragment(1, fragmentSimpan)
-                }
-                R.id.navigation_notifications -> {
-                    callFragment(2, fragmentNotif)
-                }
-                R.id.navigation_akun -> {
-                    callFragment(3, fragmentAkun)
-                }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.navigation_notifications -> {
+                Toast.makeText(this@MainActivity, "notif", Toast.LENGTH_LONG).show()
+                true
             }
-
-            false
+            else -> super.onOptionsItemSelected(item)
         }
-
     }
 
-    fun callFragment(int: Int, fragment: Fragment){
-        menuItem = menu.getItem(int)
-        menuItem.isChecked = true
-        fm.beginTransaction().hide(active).show(fragment).commit()
-        active = fragment
-    }
+//    fun setUpBottomNav(){
+//        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentHome).show(fragmentHome).commit()
+////        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentSimpan).hide(fragmentSimpan).commit()
+////        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentNotif).hide(fragmentNotif).commit()
+////        fm.beginTransaction().add(R.id.nav_host_fragment, fragmentAkun).hide(fragmentAkun).commit()
+//
+//        bottomNavigationView = findViewById(R.id.bottom_nav_view)
+//        menu = bottomNavigationView.menu
+//        menuItem = menu.getItem(0)
+//        menuItem.isChecked = true
+//
+//        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+//            when(item.itemId){
+//                R.id.nav_home -> {
+//                    callFragment(0, fragmentHome)
+//                }
+//                R.id.navigation_simpan -> {
+//                    callFragment(1, fragmentSimpan)
+//                }
+//                R.id.navigation_notifications -> {
+//                    callFragment(2, fragmentNotif)
+//                }
+//                R.id.navigation_akun -> {
+//                    callFragment(3, fragmentAkun)
+//                }
+//            }
+//
+//            false
+//        }
+//
+//    }
+//
+//    fun callFragment(int: Int, fragment: Fragment){
+//        menuItem = menu.getItem(int)
+//        menuItem.isChecked = true
+//        fm.beginTransaction().hide(active).show(fragment).commit()
+//        active = fragment
+//    }
 }

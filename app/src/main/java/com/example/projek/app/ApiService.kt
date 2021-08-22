@@ -25,7 +25,7 @@ interface ApiService {
         @Field("password") password: String
     ): Call<ResponModel>
 
-    @GET("tampil_ebook")
+    @GET("pengguna/tampil_ebook")
     fun getAllEbook(): Call<ResponModelEbook>
 
     @GET("info_donasiebook")
@@ -36,6 +36,9 @@ interface ApiService {
 
     @GET("tampil_lapak")
     fun getJadwallapak(): Call<ModeljadwalLapak>
+
+    @GET("pengguna/tampil_jeniskategori")
+    fun getKategori(): Call<ResponseKategori>
 
     @FormUrlEncoded
     @POST("info_donasipengguna")

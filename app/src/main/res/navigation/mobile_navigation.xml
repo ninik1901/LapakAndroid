@@ -17,18 +17,11 @@
         android:name="com.example.projek.fragment.SimpanFragment"
         android:label="@string/title_simpan"
         tools:layout="@layout/fragment_simpan" />
-
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.projek.fragment.NotifFragment"
-        android:label="@string/title_notifikasi"
+        android:label="notif"
         tools:layout="@layout/fragment_notif" />
-
-    <fragment
-        android:id="@+id/navigation_akun"
-        android:name="com.example.projek.fragment.AkunFragment"
-        android:label="@string/title_akun"
-        tools:layout="@layout/fragment_akun" />
 
     <fragment
         android:id="@+id/nav_donasiBuku"
@@ -41,4 +34,16 @@
         android:name="com.example.projek.JadwalLapak"
         android:label="@string/title_jadwal"
         tools:layout="@layout/activity_jadwal_lapak" />
+    <fragment
+        android:id="@+id/nav_simpan"
+        android:name="com.example.projek.fragment.SimpanFragment"
+        android:label="Simpan"
+        tools:layout="@layout/fragment_simpan" />
+
+    <fragment
+        android:id="@+id/nav_akun"
+        android:name="com.example.projek.fragment.AkunFragment"
+        android:label="Akun"
+        tools:layout="@layout/fragment_akun" />
+
 </navigation>

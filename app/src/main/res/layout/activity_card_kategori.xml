@@ -13,6 +13,7 @@
     app:cardBackgroundColor="@color/biruMuda">
 
     <ImageView
+        android:id="@+id/image_kategori"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -20,6 +21,7 @@
         android:src="@drawable/pendidikan"/>
 
     <TextView
+        android:id="@+id/judul_kategori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"

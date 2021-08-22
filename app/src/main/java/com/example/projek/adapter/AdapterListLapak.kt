@@ -1,6 +1,5 @@
 package com.example.projek.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,8 +13,7 @@ import com.example.projek.model.ModeljadwalLapak
  * Made With ❤ for U
  */
 class AdapterListLapak(
-    private val dataset: List<ModeljadwalLapak.Lapak>,
-    private val context: Context
+    private val dataset: List<ModeljadwalLapak.Lapak>
 ) : RecyclerView.Adapter<AdapterListLapak.ViewHolder>() {
     class ViewHolder(view: ActivityCardJadwalBinding) : RecyclerView.ViewHolder(view.root) {
         var binding: ActivityCardJadwalBinding = view
