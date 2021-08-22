@@ -1,5 +1,6 @@
 package com.example.projek
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,13 +20,8 @@ class JadwalLapak : Fragment() {
     private lateinit var adapterListLapak: AdapterListLapak
     private var listJadwal: ArrayList<ModeljadwalLapak.Lapak> = ArrayList()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_jadwal_lapak, container, false)
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,22 +39,24 @@ class JadwalLapak : Fragment() {
             ) {
 
                 if (response.isSuccessful) {
-                    try {
-
-                        listJadwal.addAll(response.body()!!.lapak)
-                        adapterListLapak = AdapterListLapak(listJadwal)
-
-                        binding.rvJadwalLapak.apply {
-                            layoutManager = LinearLayoutManager(activity)
-                            adapter = adapterListLapak
-                            setHasFixedSize(true)
-                        }
-
-                    } catch (e: Exception) {
-                        e.printStackTrace()
+                    response.body()?.lapak?.let { listJadwal.addAll(it) }
+                    adapterListLapak = AdapterListLapak(listJadwal, this@JadwalLapak)
+                    binding.rvJadwalLapak.apply {
+                        layoutManager = LinearLayoutManager(this@JadwalLapak)
+                        adapter = adapterListLapak
+                        setHasFixedSize(true)
                     }
+
                 }
             }
         })
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 }

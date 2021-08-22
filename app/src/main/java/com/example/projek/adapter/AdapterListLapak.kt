@@ -6,12 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projek.databinding.ActivityCardJadwalBinding
 import com.example.projek.model.ModeljadwalLapak
 
-/**
- * Created by Dhimas Panji Sastra on
- * Copyright (c)  . All rights reserved.
- * Last modified $file.lastModified
- * Made With ❤ for U
- */
 class AdapterListLapak(
     private val dataset: List<ModeljadwalLapak.Lapak>
 ) : RecyclerView.Adapter<AdapterListLapak.ViewHolder>() {
@@ -35,5 +29,6 @@ class AdapterListLapak(
         holder.binding.tvItemNama.text = dataset[position].nama_kegiatan
         holder.binding.tvItemLokasi.text = dataset[position].lokasi.toString()
         holder.binding.tvItemRelawan.text = dataset[position].jumlah_relawan.toString()
+        holder.binding.tvItemTanggal.text = dataset[position].tanggal.toString()
     }
 }

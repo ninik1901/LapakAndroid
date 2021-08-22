@@ -21,7 +21,6 @@ class BacaEbook : AppCompatActivity() {
     lateinit var pDialog: SweetAlertDialog
     lateinit var detailEbook: ResponModelEbook.ModelEbook
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBacaEbookBinding.inflate(layoutInflater)
@@ -37,10 +36,7 @@ class BacaEbook : AppCompatActivity() {
                 i.putExtra("pdf", detailEbook)
                 startActivity(i)
             }
-
-
-        }
-
+}
         binding.btnSimpan.setOnClickListener {
             ApiConfig.instanceRetrofit.simpan_buku(
                 "13",
@@ -59,8 +55,6 @@ class BacaEbook : AppCompatActivity() {
             })
         }
     }
-
-
 }
 
 

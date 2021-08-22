@@ -37,9 +37,6 @@ interface ApiService {
     @GET("tampil_lapak")
     fun getJadwallapak(): Call<ModeljadwalLapak>
 
-    @GET("pengguna/tampil_jeniskategori")
-    fun getKategori(): Call<ResponseKategori>
-
     @FormUrlEncoded
     @POST("info_donasipengguna")
     fun getDonasipengguna(
@@ -89,6 +86,13 @@ interface ApiService {
     ): Call<ResponModel>
 
     @FormUrlEncoded
+    @POST("donasi_buku")
+    fun donasi_buku(
+        @Field("id_donasi") id_donasi: RequestBody?,
+        @Field("bukti_donasi") bukti_donasi: RequestBody?
+    ): Call<ResponModel>
+
+    @FormUrlEncoded
     @POST("pengguna/tampil_user")
     fun userInfo(
         @Field("pengguna_id") pengguna_id: String
@@ -106,13 +110,24 @@ interface ApiService {
         @Field("nomor_telepon") nomor_telepon: String
     ): Call<ResponModel>
 
+    @GET("pengguna/tampil_jeniskategori")
+    fun getKategori(): Call<ResponseKategori>
+
+    @FormUrlEncoded
+    @POST("donasi_buku")
+    fun donasi_paket(
+        @Field("id_donasi") id_donasi: RequestBody?,
+        @Field("bukti_donasi") bukti_donasi: RequestBody?
+    ): Call<ResponModel>
+
     @Multipart
     @POST("donasi_buku")
-    fun donasi_buku(
-
+    fun donasi_cod(
         @Part("id_donasi") id_donasi: RequestBody?,
-        @Part("bukti_donasi") bukti_donasi: RequestBody?
+        @Part("bukti_donasi\"; filename=\"myfile.jpg\" ") bukti_donasi: RequestBody?
     ): Call<ResponModel>
+
+
 //    @Multipart
 //    @POST("/api/Accounts/editaccount")
 //    fun editUser(
