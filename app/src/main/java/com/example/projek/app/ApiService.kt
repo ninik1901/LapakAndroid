@@ -87,10 +87,18 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("donasi_buku")
-    fun donasi_buku(
+    fun donasi_paket(
         @Field("id_donasi") id_donasi: RequestBody?,
         @Field("bukti_donasi") bukti_donasi: RequestBody?
     ): Call<ResponModel>
+
+    @Multipart
+    @POST("donasi_buku")
+    fun donasi_cod(
+        @Part("id_donasi") id_donasi: RequestBody?,
+        @Part("bukti_donasi\"; filename=\"myfile.jpg\" ") bukti_donasi: RequestBody?
+    ): Call<ResponModel>
+
 
     @FormUrlEncoded
     @POST("pengguna/tampil_user")

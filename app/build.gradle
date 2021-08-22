@@ -29,16 +29,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     viewBinding {
         enabled = true
     }
 
-//
-//    sourceSets {
-//        main {
-//            java.srcDirs += 'build/generated/data_binding_base_class_source_out/debug/out'
-//        }
-//    }
+
+
+    sourceSets {
+        main {
+            java.srcDirs += 'build/generated/data_binding_base_class_source_out/debug/out'
+        }
+    }
 
 
 // To inline the bytecode built with JVM target 1.8 into
