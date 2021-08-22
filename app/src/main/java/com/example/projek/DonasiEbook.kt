@@ -1,17 +1,13 @@
 package com.example.projek
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.projek.app.ApiConfig
@@ -37,7 +33,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [EbookDonasi.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DonasiEbook : Fragment() {
+class DonasiEbook : AppCompatActivity() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -47,23 +43,8 @@ class DonasiEbook : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_donasi_ebook, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = ActivityDonasiEbookBinding.bind(view)
+        binding = ActivityDonasiEbookBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.pilihFile.setOnClickListener {
             //            val intent = Intent()
@@ -77,8 +58,8 @@ class DonasiEbook : Fragment() {
             uploadFile("35", binding.edtJudulEbook.text.toString(), pdfPath)
 
         }
-
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Log.d("datanya", data.toString())
@@ -91,7 +72,7 @@ class DonasiEbook : Fragment() {
             if (path != null) {
                 Log.d("Path: ", path)
                 pdfPath = path
-                Toast.makeText(requireActivity(), "Picked file: $path", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@DonasiEbook, "Picked file: $path", Toast.LENGTH_LONG).show()
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
@@ -102,7 +83,7 @@ class DonasiEbook : Fragment() {
         judul_buku: String,
         filePath: String
     ) {
-        pDialog = SweetAlertDialog(requireActivity(), SweetAlertDialog.PROGRESS_TYPE)
+        pDialog = SweetAlertDialog(this@DonasiEbook, SweetAlertDialog.PROGRESS_TYPE)
         pDialog!!.progressHelper.barColor = Color.parseColor("#DA1F3E")
         pDialog!!.setCancelable(false)
         pDialog!!.titleText = "Mohon Tunggu..."
@@ -136,13 +117,13 @@ class DonasiEbook : Fragment() {
                     hideDialog()
                     if (response.body()?.message.equals("success")) {
                         Toast.makeText(
-                            requireActivity(),
+                            this@DonasiEbook,
                             "File Uploaded Successfully...",
                             Toast.LENGTH_LONG
                         ).show()
                     } else {
                         Toast.makeText(
-                            requireActivity(),
+                            this@DonasiEbook,
                             "Some error occurred...",
                             Toast.LENGTH_LONG
                         ).show()
@@ -151,7 +132,7 @@ class DonasiEbook : Fragment() {
             }
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(activity, t.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@DonasiEbook, t.message, Toast.LENGTH_LONG).show()
             }
         })
     }
@@ -185,7 +166,7 @@ class DonasiEbook : Fragment() {
 //    }
     private fun launchPicker() {
         MaterialFilePicker()
-            .withSupportFragment(this)
+            .withActivity(this@DonasiEbook)
             .withRequestCode(1)
             .withHiddenFiles(true)
             .withFilter(Pattern.compile(".*\\.pdf$"))

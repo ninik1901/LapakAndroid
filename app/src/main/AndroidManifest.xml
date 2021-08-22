@@ -23,18 +23,21 @@
 
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ResetPassword" />
-        <activity android:name=".EbookActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ResetPassword" />
+        <activity android:name=".DonasiEbook" />
+        <activity android:name=".EbookActivity" />
+        <activity android:name=".SplashActivity">
+
+        </activity>
         <activity android:name=".KomentarActivity" />
-        <activity android:name=".PengajuanDonasi"/>
+        <activity android:name=".PengajuanDonasi" />
         <activity android:name=".DonasiBukuCetak" />
     </application>
 
