@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rv1"
+        android:gravity="center_vertical"
+        android:background="@color/biru"
+        android:orientation="horizontal"
+        android:layout_width="411dp"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_black_24dp"/>
+
+        <TextView
+            android:layout_width="193dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="Detail Kegiatan"
+            android:textColor="@color/putih" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_1"
+        android:layout_below="@id/rv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Kegiatan : Taman indah"
+            android:textColor="@color/black"
+            android:textSize="7pt"
+            android:padding="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal: 20-08-2020"
+            android:textColor="@color/black"
+            android:textSize="7pt"
+            android:padding="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jumlah relawan : 2"
+            android:textColor="@color/black"
+            android:textSize="7pt"
+            android:padding="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lokasi: Banyuwangi"
+            android:textColor="@color/black"
+            android:textSize="7pt"
+            android:padding="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Map :"
+                android:textColor="@color/black"
+                android:textSize="7pt" />
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_location_on_black_24dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Catatan: Jika ingin mendaftarkan diri sebagai relawan silahkan klik tombol di bawah ini"
+            android:textColor="@color/black"
+            android:textSize="7pt"
+            android:padding="5dp"/>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_relawan"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@color/biru"
+        android:text="daftar relawan"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="270dp"/>
+
+</RelativeLayout>

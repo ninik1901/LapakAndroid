@@ -1,16 +1,21 @@
 package com.example.projek
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.database.Cursor
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.loader.content.CursorLoader
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.projek.app.ApiConfig
@@ -21,9 +26,11 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 
 class DonasiBukuCetak : AppCompatActivity() {
     private lateinit var binding: ActivityDonasiBukuCetakBinding
+    var selectedImage: Uri? = null
 
     var pDialog: SweetAlertDialog? = null
 
@@ -32,9 +39,27 @@ class DonasiBukuCetak : AppCompatActivity() {
         binding = ActivityDonasiBukuCetakBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            val intent = Intent(
+                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.parse("package:$packageName")
+            )
+            finish()
+            startActivity(intent)
+            return
+        }
 
         binding.btnCod.setOnClickListener {
+            selectedImage?.let {
+                uploadFile(
+                )
 
+            }
         }
         binding.btnPaket.setOnClickListener {
             uploadResi("35",binding.edtNomorResi.text.toString()
@@ -42,6 +67,23 @@ class DonasiBukuCetak : AppCompatActivity() {
         }
         back()
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
+            //the image URI
+            selectedImage = data?.data
+            if (selectedImage != null) {
+                Toast.makeText(
+                    applicationContext,
+                    getRealPathFromURI(selectedImage!!),
+                    Toast.LENGTH_LONG
+                ).show()
+
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun back() {
         val toolbar: Toolbar = binding.toolbar
@@ -59,6 +101,71 @@ class DonasiBukuCetak : AppCompatActivity() {
     private fun hideDialog() {
         if (pDialog?.isShowing!!) pDialog!!.dismiss()
     }
+
+    private fun getRealPathFromURI(contentUri: Uri): String? {
+        val proj = arrayOf(MediaStore.Images.Media.DATA)
+        val loader = CursorLoader(this, contentUri, proj, null, null, null)
+        val cursor: Cursor = loader.loadInBackground()!!
+        val column_index: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        cursor.moveToFirst()
+        val result: String = cursor.getString(column_index)
+        cursor.close()
+        return result
+    }
+
+
+    private fun uploadFile(
+        id_donatur: String,  fileUri: Uri
+    ) {
+        pDialog = SweetAlertDialog(this@DonasiBukuCetak, SweetAlertDialog.PROGRESS_TYPE)
+        pDialog!!.progressHelper.barColor = Color.parseColor("#DA1F3E")
+        pDialog!!.setCancelable(false)
+        pDialog!!.titleText = "Mohon Tunggu..."
+        showDialog()
+        //creating a file
+        val file = File(getRealPathFromURI(fileUri))
+
+        //creating request body for file
+        val requestFile: RequestBody =
+            RequestBody.create(MediaType.parse(contentResolver.getType(fileUri)), file)
+        val descBody = RequestBody.create(MediaType.parse("text/plain"), id_donatur)
+
+
+        //creating our api
+
+        //creating a call and calling the upload image method
+        ApiConfig.instanceRetrofit.donasi_cod(
+            requestFile,
+            descBody
+        ).enqueue(object : Callback<ResponModel> {
+            override fun onResponse(
+                call: Call<ResponModel>,
+                response: Response<ResponModel>
+            ) {
+                if (response.isSuccessful) {
+                    hideDialog()
+                    if (response.body()?.message.equals("success")) {
+                        Toast.makeText(
+                            applicationContext,
+                            "File Uploaded Successfully...",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            applicationContext,
+                            "Some error occurred...",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+            }
+        })
+
+    }
     private fun uploadResi(
         id_donatur: String,
         buktidonasi: String
@@ -72,7 +179,7 @@ class DonasiBukuCetak : AppCompatActivity() {
         val descBody = RequestBody.create(MediaType.parse("text/plain"), id_donatur)
         val descBody2 = RequestBody.create(MediaType.parse("text/plain"), buktidonasi)
 
-        ApiConfig.instanceRetrofit.donasi_buku(
+        ApiConfig.instanceRetrofit.donasi_paket(
             descBody,
             descBody2
         ).enqueue(object :

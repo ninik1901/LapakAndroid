@@ -15,13 +15,6 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="300px"
-        android:layout_height="300px"
-        android:scaleType="centerCrop"
-        android:src="@drawable/logo"/>
-
     <TextView
         android:id="@+id/tv_item_nama"
         android:layout_width="match_parent"
@@ -30,8 +23,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/black"
-        android:text="Nama Kegiatan:"
-        android:layout_toEndOf="@id/image"/>
+        android:text="Nama Kegiatan:"/>
 
         <TextView
             android:id="@+id/tv_item_tanggal"
@@ -40,29 +32,18 @@
             android:layout_below="@id/tv_item_nama"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_toEndOf="@id/image"
             android:text="Tanggal:"
             android:textColor="@color/black"/>
 
-        <TextView
-            android:id="@+id/tv_item_waktu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_item_tanggal"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_toEndOf="@id/image"
-            android:text="Waktu:"
-            android:textColor="@color/black"/>
+
 
         <TextView
             android:id="@+id/tv_item_relawan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_item_waktu"
+            android:layout_below="@id/tv_item_tanggal"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_toEndOf="@id/image"
             android:text="Relawan:"
             android:textColor="@color/black"/>
 
@@ -73,7 +54,6 @@
             android:layout_below="@id/tv_item_relawan"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_toEndOf="@id/image"
             android:text="Lokasi:"
             android:textColor="@color/black"/>
 
