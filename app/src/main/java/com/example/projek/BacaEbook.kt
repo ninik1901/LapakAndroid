@@ -31,7 +31,25 @@ class BacaEbook : AppCompatActivity() {
 
             binding.detailJudul.text = detailEbook.judul_buku
             binding.detailNamaPengarang.text = detailEbook.nama_pengarang
+            binding.detailJumlahBaca.text = detailEbook.jumlah_baca.toString()
             binding.btnBaca.setOnClickListener {
+                ApiConfig.instanceRetrofit.tambah_baca(
+                    detailEbook.id.toString()
+
+                ).enqueue(object :
+                    Callback<ResponModel> {
+
+                    override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                    }
+
+                    override fun onResponse(
+                        call: Call<ResponModel>,
+                        response: Response<ResponModel>
+                    ) {
+                        Toast.makeText(this@BacaEbook, response.body()?.message, Toast.LENGTH_LONG)
+                            .show()
+                    }
+                })
                 val i = Intent(this, Pdf::class.java)
                 i.putExtra("pdf", detailEbook)
                 startActivity(i)

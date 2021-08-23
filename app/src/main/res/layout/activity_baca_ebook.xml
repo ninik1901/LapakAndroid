@@ -66,6 +66,7 @@
             android:src="@drawable/ic_remove_red_eye_black_24dp" />
 
         <TextView
+            android:id="@+id/detailJumlahBaca"
             android:layout_width="69dp"
             android:layout_height="wrap_content"
             android:padding="3dp"

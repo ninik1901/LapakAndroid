@@ -44,14 +44,26 @@ interface ApiService {
     ): Call<ModelInfoPengguna>
 
     @FormUrlEncoded
-    @POST("daftar_simpan")
+    @POST("pengguna/daftar_simpan")
     fun simpan_buku(
         @Field("user_id") user_id: String,
         @Field("buku_id") buku_id: String
     ): Call<ResponModel>
 
     @FormUrlEncoded
-    @POST("pengajuan_ebook")
+    @POST("tambah_baca")
+    fun tambah_baca(
+        @Field("id_buku") id_buku: String
+    ): Call<ResponModel>
+
+    @FormUrlEncoded
+    @POST("pengguna/tampil_simpan")
+    fun tampil_simpan(
+        @Field("user_id") user_id: String
+    ): Call<ModelResponseSimpan>
+
+    @FormUrlEncoded
+    @POST("pengguna/pengajuan_ebook")
     fun pengajuan_ebook(
         @Field("judul_buku") user_id: String,
         @Field("jenis_buku") jenis_buku: String,
@@ -63,7 +75,7 @@ interface ApiService {
     ): Call<ResponModel>
 
     @Multipart
-    @POST("pengajuan_buku")
+    @POST("pengguna/pengajuan_buku")
     fun pengajuan_buku(
 
         @Part("foto_cover\"; filename=\"myfile.jpg\" ") foto_cover: RequestBody?,

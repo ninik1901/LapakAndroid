@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiConfig {
     private const val BASE_URL = "https://ninik.panjisastra.my.id/api/"
-    const val BASE_URL_FILE = "http://192.168.1.44/projectta/public/file/ebook/"
+    const val BASE_URL_FILE = "https://ninik.panjisastra.my.id/file/ebook/"
     private val client: Retrofit
         get() {
             val gson = GsonBuilder()

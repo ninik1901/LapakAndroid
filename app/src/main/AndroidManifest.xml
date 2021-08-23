@@ -23,6 +23,7 @@
 
         </activity>
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".Pdf" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +38,9 @@
 
         </activity>
         <activity android:name=".KomentarActivity" />
-        <activity android:name=".PengajuanDonasi" />
+        <activity android:name=".PengajuanDonasi">
+
+        </activity>
         <activity android:name=".DonasiBukuCetak" />
     </application>
 
