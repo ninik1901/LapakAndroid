@@ -25,7 +25,7 @@ interface ApiService {
         @Field("password") password: String
     ): Call<ResponModel>
 
-    @GET("pengguna/tampil_ebook")
+    @GET("tampil_ebook")
     fun getAllEbook(): Call<ResponModelEbook>
 
     @GET("info_donasiebook")
@@ -44,7 +44,7 @@ interface ApiService {
     ): Call<ModelInfoPengguna>
 
     @FormUrlEncoded
-    @POST("pengguna/daftar_simpan")
+    @POST("daftar_simpan")
     fun simpan_buku(
         @Field("user_id") user_id: String,
         @Field("buku_id") buku_id: String
@@ -57,13 +57,13 @@ interface ApiService {
     ): Call<ResponModel>
 
     @FormUrlEncoded
-    @POST("pengguna/tampil_simpan")
+    @POST("tampil_simpan")
     fun tampil_simpan(
         @Field("user_id") user_id: String
     ): Call<ModelResponseSimpan>
 
     @FormUrlEncoded
-    @POST("pengguna/pengajuan_ebook")
+    @POST("pengajuan_ebook")
     fun pengajuan_ebook(
         @Field("judul_buku") user_id: String,
         @Field("jenis_buku") jenis_buku: String,
@@ -75,7 +75,7 @@ interface ApiService {
     ): Call<ResponModel>
 
     @Multipart
-    @POST("pengguna/pengajuan_buku")
+    @POST("pengajuan_buku")
     fun pengajuan_buku(
 
         @Part("foto_cover\"; filename=\"myfile.jpg\" ") foto_cover: RequestBody?,
@@ -97,22 +97,22 @@ interface ApiService {
         @Part("judul_buku") judul_buku: RequestBody?
     ): Call<ResponModel>
 
-    @FormUrlEncoded
-    @POST("donasi_buku")
-    fun donasi_buku(
-        @Field("id_donasi") id_donasi: RequestBody?,
-        @Field("bukti_donasi") bukti_donasi: RequestBody?
-    ): Call<ResponModel>
+//    @FormUrlEncoded
+//    @POST("donasi_buku")
+//    fun donasi_buku(
+//        @Field("id_donasi") id_donasi: RequestBody?,
+//        @Field("bukti_donasi") bukti_donasi: RequestBody?
+//    ): Call<ResponModel>
 
     @FormUrlEncoded
-    @POST("pengguna/tampil_user")
+    @POST("tampil_user")
     fun userInfo(
         @Field("pengguna_id") pengguna_id: String
     ): Call<ModelUserInfo>
 
 
     @FormUrlEncoded
-    @POST("pengguna/ubah_profiluser")
+    @POST("ubah_profiluser")
     fun update_profil(
         @Field("id") id: String,
         @Field("nama") nama: String,
@@ -122,7 +122,7 @@ interface ApiService {
         @Field("nomor_telepon") nomor_telepon: String
     ): Call<ResponModel>
 
-    @GET("pengguna/tampil_jeniskategori")
+    @GET("tampil_jeniskategori")
     fun getKategori(): Call<ResponseKategori>
 
     @FormUrlEncoded

@@ -24,14 +24,8 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:layout_height="170dp"
-            android:src="@drawable/buku2" />
-
-        <ImageView
-            android:id="@+id/item_lihat"
-            android:layout_width="50dp"
-            android:layout_height="25dp"
-            android:layout_marginBottom="7dp"
-            android:src="@drawable/ic_remove_red_eye_black_24dp" />
+            android:src="@drawable/buku2"
+            android:padding="10dp"/>
 
         <!--        <LinearLayout-->
         <!--            android:layout_width="match_parent"-->

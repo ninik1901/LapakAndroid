@@ -38,7 +38,7 @@
         android:background="@drawable/form2" />
 
     <Button
-        android:id="@+id/pengajuan_donasi"
+        android:id="@+id/btn_pengajuan_donasi"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
@@ -47,7 +47,7 @@
         android:text="Pengajuan donasi" />
 
     <Button
-        android:id="@+id/donasi_buku_cetak"
+        android:id="@+id/btn_donasi_buku_cetak"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="240dp"
@@ -65,7 +65,7 @@
         android:text="Donasi Ebook" />
 
     <Button
-        android:id="@+id/info_donasi"
+        android:id="@+id/btn_info_donasi"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
@@ -74,7 +74,7 @@
         android:text="Info donasi" />
 
     <Button
-        android:id="@+id/ketentuan_donasi"
+        android:id="@+id/btn_ketentuan_donasi"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="480dp"

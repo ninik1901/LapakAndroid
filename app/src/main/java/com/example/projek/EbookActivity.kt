@@ -1,7 +1,10 @@
 package com.example.projek
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projek.adapter.AdapterListEbook
 import com.example.projek.app.ApiConfig
@@ -11,15 +14,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EbookActivity : AppCompatActivity() {
+class EbookActivity : Fragment() {
 
     lateinit var binding: ActivityEbookBinding
     private lateinit var adapterListEbook: AdapterListEbook
     private var listEbook: ArrayList<ResponModelEbook.ModelEbook> = ArrayList()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityEbookBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = ActivityEbookBinding.bind(view)
 
         ApiConfig.instanceRetrofit.getAllEbook().enqueue(object : Callback<ResponModelEbook> {
             override fun onFailure(call: Call<ResponModelEbook>, t: Throwable) {
@@ -32,16 +34,22 @@ class EbookActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     response.body()?.ebook?.let { listEbook.addAll(it) }
-                    adapterListEbook = AdapterListEbook(listEbook, this@EbookActivity)
+                    adapterListEbook = AdapterListEbook(listEbook,requireActivity())
                     binding.rvLine.apply {
-                        layoutManager = GridLayoutManager(this@EbookActivity, 3)
+                        layoutManager = GridLayoutManager(requireActivity(),3)
                         adapter = adapterListEbook
                         setHasFixedSize(true)
                     }
                 }
             }
-        }
+        })
+    }
 
-        )
+        override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            return inflater.inflate(R.layout.activity_ebook, container, false)
     }
 }

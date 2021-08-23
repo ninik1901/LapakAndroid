@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Donasi Ebook"
+                android:text="Jadwal Lapak"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 tools:ignore="HardcodedText" />
@@ -37,7 +37,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/appBarLayout"
-        android:layout_marginTop="40dp"
         tools:itemCount="2"
         tools:listitem="@layout/activity_card_jadwal" />
 
