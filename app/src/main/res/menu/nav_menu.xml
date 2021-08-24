@@ -18,10 +18,6 @@
         android:title="Ebook"
         app:showAsAction="never" />
     <item
-        android:id="@+id/nav_profilLapak"
-        android:icon="@drawable/information"
-        android:title="Profil Lapak" />
-    <item
         android:id="@+id/nav_jadwal"
         android:icon="@drawable/calendar"
         android:title="Jadwal Lapak" />

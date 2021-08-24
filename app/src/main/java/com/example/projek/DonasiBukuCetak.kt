@@ -74,6 +74,10 @@ class DonasiBukuCetak : AppCompatActivity() {
         back()
     }
 
+    private fun uploadFile() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
             //the image URI

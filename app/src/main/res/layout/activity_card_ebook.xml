@@ -22,14 +22,13 @@
             android:layout_marginTop="5dp"
             android:src="@drawable/buku2"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+
             android:layout_below="@+id/list_ebook1"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:text="Title"
-            android:textStyle="bold"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_remove_red_eye_black_24dp"
+            android:layout_marginRight="270dp"/>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

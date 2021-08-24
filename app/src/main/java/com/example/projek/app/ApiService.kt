@@ -107,12 +107,12 @@ interface ApiService {
         @Part("judul_buku") judul_buku: RequestBody?
     ): Call<ResponModel>
 
-    @FormUrlEncoded
-    @POST("donasi_buku")
-    fun donasi_buku(
-        @Field("id_donasi") id_donasi: RequestBody?,
-        @Field("bukti_donasi") bukti_donasi: RequestBody?
-    ): Call<ResponModel>
+//    @FormUrlEncoded
+//    @POST("donasi_buku")
+//    fun donasi_buku(
+//        @Field("id_donasi") id_donasi: RequestBody?,
+//        @Field("bukti_donasi") bukti_donasi: RequestBody?
+//    ): Call<ResponModel>
 
     @FormUrlEncoded
     @POST("tampil_user")

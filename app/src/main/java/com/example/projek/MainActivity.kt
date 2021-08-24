@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home,
                 R.id.nav_donasiBuku,
                 R.id.nav_ebook,
-                R.id.nav_profilLapak,
                 R.id.nav_jadwal,
                 R.id.navigation_notifications,
                 R.id.nav_akun,
