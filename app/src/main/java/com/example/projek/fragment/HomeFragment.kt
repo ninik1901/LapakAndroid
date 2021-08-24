@@ -1,7 +1,6 @@
 package com.example.projek.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,6 @@ import com.example.projek.app.ApiConfig
 import com.example.projek.databinding.FragmentHomeBinding
 import com.example.projek.model.ResponModelEbook
 import com.example.projek.model.ResponseKategori
-import com.google.firebase.iid.FirebaseInstanceId
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -81,7 +79,6 @@ class HomeFragment : Fragment() {
         getKategori()
         getEbookBaru()
 
-        Log.d("Toket", FirebaseInstanceId.getInstance().token.toString())
 
 
     }

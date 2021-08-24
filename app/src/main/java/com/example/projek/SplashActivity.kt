@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projek.app.SessionManager
 
 class SplashActivity : AppCompatActivity() {
 
@@ -13,7 +14,12 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            startActivity(Intent(this, MainActivity::class.java))
+            if (SessionManager.is_login(applicationContext)) {
+                startActivity(Intent(this, MainActivity::class.java))
+            } else {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+
             finish()
 
         }, 1000)

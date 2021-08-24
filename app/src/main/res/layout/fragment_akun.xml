@@ -177,9 +177,10 @@
 
     <Button
         android:layout_width="100dp"
+        android:id="@+id/btn_keluar"
         android:layout_height="50dp"
         android:layout_marginLeft="125dp"
         android:layout_marginTop="580dp"
         android:background="@color/biruMuda"
-        android:text="Keluar"></Button>
+        android:text="Keluar" />
 </RelativeLayout>

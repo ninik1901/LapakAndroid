@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.projek.LoginActivity
 import com.example.projek.R
 import com.example.projek.UbahAkun
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.databinding.FragmentAkunBinding
 import com.example.projek.model.ModelUserInfo
 import retrofit2.Call
@@ -32,19 +34,26 @@ class AkunFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAkunBinding.bind(view)
-        akun("14")
+        SessionManager.getIdUser(requireActivity())?.let { akun(it) }
         binding.btnUbah.setOnClickListener {
 
             val i = Intent(activity, UbahAkun::class.java)
             i.putExtra("data", data)
             startActivityForResult(i, 1)
         }
+        binding.btnKeluar.setOnClickListener {
+            SessionManager.setLogin(requireActivity(), false)
+            val i = Intent(activity, LoginActivity::class.java)
+
+            startActivity(i)
+            requireActivity().finish()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1) {
-            akun("14")
+            SessionManager.getIdUser(requireActivity())?.let { akun(it) }
         }
     }
 

@@ -23,6 +23,7 @@ import androidx.core.content.ContextCompat
 import androidx.loader.content.CursorLoader
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityPengajuanDonasiBinding
 import com.example.projek.model.ResponModel
 import okhttp3.MediaType
@@ -129,27 +130,31 @@ class PengajuanDonasi : AppCompatActivity() {
 
             if (buku == "Buku") {
                 selectedImage?.let {
-                    uploadFile(
+                    SessionManager.getIdUser(applicationContext)?.let { it1 ->
+                        uploadFile(
+                            binding.edtJudulBuku.text.toString(),
+                            buku,
+                            binding.edtAlamatDonatur.text.toString(),
+                            it1,
+                            binding.edtSinopsis.text.toString(),
+                            paket,
+                            binding.edtJmlDonasi.text.toString(),
+                            it
+                        )
+                    }
+                }
+            } else {
+                SessionManager.getIdUser(applicationContext)?.let { it1 ->
+                    uploadEbook(
                         binding.edtJudulBuku.text.toString(),
                         buku,
                         binding.edtAlamatDonatur.text.toString(),
-                        "14",
+                        it1,
                         binding.edtSinopsis.text.toString(),
                         paket,
-                        binding.edtJmlDonasi.text.toString(),
-                        it
+                        binding.edtJmlDonasi.text.toString()
                     )
                 }
-            } else {
-                uploadEbook(
-                    binding.edtJudulBuku.text.toString(),
-                    buku,
-                    binding.edtAlamatDonatur.text.toString(),
-                    "14",
-                    binding.edtSinopsis.text.toString(),
-                    paket,
-                    binding.edtJmlDonasi.text.toString()
-                )
 
             }
 

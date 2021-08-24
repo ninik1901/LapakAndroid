@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityUbahAkunBinding
 import com.example.projek.model.ModelUserInfo
 import com.example.projek.model.ResponModel
@@ -30,14 +31,16 @@ class UbahAkun : AppCompatActivity() {
         binding.edtNoTelp.setText(datanya.nomor_telepon)
 
         binding.btnSimpan.setOnClickListener {
-            updateProfile(
-                "14",
-                binding.edtNama.text.toString(),
-                binding.edtEmail.text.toString(),
-                binding.edtAlamat.text.toString(),
-                binding.password.text.toString(),
-                binding.edtNoTelp.text.toString()
-            )
+            SessionManager.getIdUser(applicationContext)?.let { it1 ->
+                updateProfile(
+                    it1,
+                    binding.edtNama.text.toString(),
+                    binding.edtEmail.text.toString(),
+                    binding.edtAlamat.text.toString(),
+                    binding.password.text.toString(),
+                    binding.edtNoTelp.text.toString()
+                )
+            }
         }
 
         back()

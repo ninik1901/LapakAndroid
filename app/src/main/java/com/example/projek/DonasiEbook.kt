@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityDonasiEbookBinding
 import com.example.projek.model.ResponModel
 import com.nbsp.materialfilepicker.MaterialFilePicker
@@ -55,7 +56,8 @@ class DonasiEbook : AppCompatActivity() {
             launchPicker()
         }
         binding.btnDonasiEbook.setOnClickListener {
-            uploadFile("35", binding.edtJudulEbook.text.toString(), pdfPath)
+            SessionManager.getIdUser(applicationContext)
+                ?.let { it1 -> uploadFile(it1, binding.edtJudulEbook.text.toString(), pdfPath) }
 
         }
     }

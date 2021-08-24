@@ -26,6 +26,13 @@
             android:layout_height="170dp"
             android:src="@drawable/buku2" />
 
+        <TextView
+            android:id="@+id/judul_Buku"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
         <ImageView
             android:id="@+id/item_lihat"
             android:layout_width="50dp"

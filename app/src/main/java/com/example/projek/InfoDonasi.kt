@@ -3,6 +3,7 @@ package com.example.projek
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityInfoDonasiBinding
 import com.example.projek.model.ModelInfoDonasiBuku
 import com.example.projek.model.ModelInfoDonasiEbook
@@ -19,21 +20,23 @@ class InfoDonasi : AppCompatActivity() {
         binding = ActivityInfoDonasiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ApiConfig.instanceRetrofit.getDonasipengguna("14").enqueue(object :
-            Callback<ModelInfoPengguna> {
+        SessionManager.getIdUser(applicationContext)?.let {
+            ApiConfig.instanceRetrofit.getDonasipengguna(it).enqueue(object :
+                Callback<ModelInfoPengguna> {
 
-            override fun onFailure(call: Call<ModelInfoPengguna>, t: Throwable) {
-            }
-
-            override fun onResponse(
-                call: Call<ModelInfoPengguna>,
-                response: Response<ModelInfoPengguna>
-            ) {
-                if (response.isSuccessful) {
-                    binding.isiPengguna.text = response.body()!!.Jumlah.toString()
+                override fun onFailure(call: Call<ModelInfoPengguna>, t: Throwable) {
                 }
-            }
-        })
+
+                override fun onResponse(
+                    call: Call<ModelInfoPengguna>,
+                    response: Response<ModelInfoPengguna>
+                ) {
+                    if (response.isSuccessful) {
+                        binding.isiPengguna.text = response.body()!!.Jumlah.toString()
+                    }
+                }
+            })
+        }
         ApiConfig.instanceRetrofit.getDonasibuku().enqueue(object :
             Callback<ModelInfoDonasiBuku> {
 

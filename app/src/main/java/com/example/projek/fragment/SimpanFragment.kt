@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projek.R
 import com.example.projek.adapter.AdapterListSimpan
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.databinding.FragmentSimpanBinding
 import com.example.projek.model.ModelResponseSimpan
 import retrofit2.Call
@@ -40,31 +41,36 @@ class SimpanFragment : Fragment() {
     }
 
     fun getSimpan() {
-        ApiConfig.instanceRetrofit.tampil_simpan("13")
-            .enqueue(object : Callback<ModelResponseSimpan> {
-                override fun onFailure(call: Call<ModelResponseSimpan>, t: Throwable) {
+        SessionManager.getIdUser(requireActivity())?.let {
+            ApiConfig.instanceRetrofit.tampil_simpan(
+                it
+            )
+                .enqueue(object : Callback<ModelResponseSimpan> {
+                    override fun onFailure(call: Call<ModelResponseSimpan>, t: Throwable) {
 
-                }
+                    }
 
-                override fun onResponse(
-                    call: Call<ModelResponseSimpan>,
-                    response: Response<ModelResponseSimpan>
-                ) {
-                    if (response.isSuccessful) {
-                        response.body()?.tampil?.let { listSimpan.addAll(it) }
-                        adapterListSimpan = activity?.let { AdapterListSimpan(listSimpan, it) }!!
-                        binding.rvSimpan.apply {
+                    override fun onResponse(
+                        call: Call<ModelResponseSimpan>,
+                        response: Response<ModelResponseSimpan>
+                    ) {
+                        if (response.isSuccessful) {
+                            response.body()?.tampil?.let { listSimpan.addAll(it) }
+                            adapterListSimpan =
+                                activity?.let { AdapterListSimpan(listSimpan, it) }!!
+                            binding.rvSimpan.apply {
 
-                            layoutManager =
-                                LinearLayoutManager(activity)
-                            adapter = adapterListSimpan
+                                layoutManager =
+                                    LinearLayoutManager(activity)
+                                adapter = adapterListSimpan
 
+                            }
                         }
                     }
                 }
-            }
 
-            )
+                )
+        }
     }
 
 }

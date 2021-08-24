@@ -1,9 +1,11 @@
 package com.example.projek.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projek.BacaEbook
 import com.example.projek.databinding.ActivityCardSimpanBinding
 import com.example.projek.model.ModelResponseSimpan
 
@@ -32,5 +34,10 @@ class AdapterListSimpan(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.binding.tvItemNama.text = dataset[position].judul_buku
+        holder.itemView.setOnClickListener {
+            val i = Intent(context, BacaEbook::class.java)
+            i.putExtra("simpan", dataset[position])
+            context.startActivity(i)
+        }
     }
 }

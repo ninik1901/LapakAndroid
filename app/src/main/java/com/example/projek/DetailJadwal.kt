@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityDetailJadwalBinding
 import com.example.projek.model.ModeljadwalLapak
 import com.example.projek.model.ResponModel
@@ -32,21 +33,23 @@ class DetailJadwal : AppCompatActivity() {
     }
 
     private fun daftarRelawan(lapak_id: String) {
-        ApiConfig.instanceRetrofit.up_relawan(
-            "13",
-            lapak_id
+        SessionManager.getIdUser(applicationContext)?.let {
+            ApiConfig.instanceRetrofit.up_relawan(
+                it,
+                lapak_id
 
-        ).enqueue(object :
-            Callback<ResponModel> {
+            ).enqueue(object :
+                Callback<ResponModel> {
 
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-            }
+                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                }
 
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                Toast.makeText(this@DetailJadwal, response.body()?.message, Toast.LENGTH_LONG)
-                    .show()
-            }
-        })
+                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+                    Toast.makeText(this@DetailJadwal, response.body()?.message, Toast.LENGTH_LONG)
+                        .show()
+                }
+            })
+        }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")

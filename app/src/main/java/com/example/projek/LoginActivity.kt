@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.model.ResponModel
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
@@ -41,35 +42,44 @@ class LoginActivity : AppCompatActivity() {
             return
         }
         btn_masuk.setOnClickListener {
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            ApiConfig.instanceRetrofit.login(
+                edt_email.text.toString(),
+                edt_password.text.toString()
+            ).enqueue(object : Callback<ResponModel> {
+
+                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                    Toast.makeText(this@LoginActivity, "Error:" + t.message, Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
+
+                    val respon = response.body()!!
+
+                    if (response.body()!!.success!!) {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            respon.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        SessionManager.setLogin(applicationContext, true)
+                        SessionManager.setidUser(
+                            applicationContext,
+                            response.body()!!.user!!.id.toString()
+                        )
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            response.body()!!.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+
+            })
         }
 
-        ApiConfig.instanceRetrofit.login(edt_email.text.toString(),edt_password.text.toString()).enqueue(object: Callback<ResponModel> {
 
-            override fun onFailure(call: Call<ResponModel>, t: Throwable) {
-                Toast.makeText(this@LoginActivity, "Error:"+t.message, Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-
-                val respon = response.body()!!
-
-                if (respon.success!!) {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Success:" + respon.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Error:" + respon.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
-
-        })
     }
 }

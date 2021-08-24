@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.downloader.PRDownloader
 import com.example.projek.app.ApiConfig
 import com.example.projek.databinding.ActivityBacaEbookBinding
+import com.example.projek.model.ModelResponseSimpan
 import com.example.projek.model.ResponModel
 import com.example.projek.model.ResponModelEbook
 import retrofit2.Call
@@ -21,6 +22,7 @@ class BacaEbook : AppCompatActivity() {
     lateinit var binding: ActivityBacaEbookBinding
     lateinit var pDialog: SweetAlertDialog
     lateinit var detailEbook: ResponModelEbook.ModelEbook
+    lateinit var detailEbookSimpan: ModelResponseSimpan.ModelSimpan
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,11 +61,44 @@ class BacaEbook : AppCompatActivity() {
                 i.putExtra("pdf", detailEbook)
                 startActivity(i)
             }
-}
+        }
+        if (intent.hasExtra("simpan")) {
+            detailEbookSimpan = intent.getParcelableExtra("simpan")!!
+            Glide.with(this@BacaEbook)
+                .load("https://ninik.panjisastra.my.id/img/buku/" + detailEbookSimpan.foto_cover)
+                .fitCenter()
+                .dontAnimate()
+                .into(binding.detailGambar)
+            binding.detailJudul.text = detailEbookSimpan.judul_buku
+            binding.detailNamaPengarang.text = detailEbookSimpan.nama_pengarang
+            binding.detailJumlahBaca.text = detailEbookSimpan.jumlah_baca.toString()
+            binding.btnBaca.setOnClickListener {
+                ApiConfig.instanceRetrofit.tambah_baca(
+                    detailEbookSimpan.id.toString()
+
+                ).enqueue(object :
+                    Callback<ResponModel> {
+
+                    override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                    }
+
+                    override fun onResponse(
+                        call: Call<ResponModel>,
+                        response: Response<ResponModel>
+                    ) {
+                        Toast.makeText(this@BacaEbook, response.body()?.message, Toast.LENGTH_LONG)
+                            .show()
+                    }
+                })
+                val i = Intent(this, Pdf::class.java)
+                i.putExtra("pdf", detailEbookSimpan)
+                startActivity(i)
+            }
+        }
         binding.btnSimpan.setOnClickListener {
             ApiConfig.instanceRetrofit.simpan_buku(
                 "13",
-                detailEbook.id.toString()
+                detailEbookSimpan.id.toString()
 
             ).enqueue(object :
                 Callback<ResponModel> {

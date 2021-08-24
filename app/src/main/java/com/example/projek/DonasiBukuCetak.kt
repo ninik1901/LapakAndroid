@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.loader.content.CursorLoader
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.projek.app.ApiConfig
+import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityDonasiBukuCetakBinding
 import com.example.projek.model.ResponModel
 import okhttp3.MediaType
@@ -59,17 +60,21 @@ class DonasiBukuCetak : AppCompatActivity() {
         }
         binding.btnCod.setOnClickListener {
             selectedImage?.let {
-                uploadFile(
-                    "35",
-                    selectedImage!!
-                )
+                SessionManager.getIdUser(applicationContext)?.let { it1 ->
+                    uploadFile(
+                        it1,
+                        selectedImage!!
+                    )
+                }
 
             }
         }
         binding.btnPaket.setOnClickListener {
-            uploadResi(
-                "35", binding.edtNomorResi.text.toString()
-            )
+            SessionManager.getIdUser(applicationContext)?.let { it1 ->
+                uploadResi(
+                    it1, binding.edtNomorResi.text.toString()
+                )
+            }
         }
         back()
     }
