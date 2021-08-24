@@ -1,14 +1,12 @@
 package com.example.projek
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.projek.app.ApiConfig
 import com.example.projek.model.ResponModel
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.edt_email
-import kotlinx.android.synthetic.main.activity_login.edt_password
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,10 +54,18 @@ class LoginActivity : AppCompatActivity() {
 
                 val respon = response.body()!!
 
-                if (respon.success == 1){
-                    Toast.makeText(this@LoginActivity, "Success:"+respon.message, Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(this@LoginActivity, "Error:"+respon.message, Toast.LENGTH_SHORT).show()
+                if (respon.success!!) {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Success:" + respon.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Error:" + respon.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 

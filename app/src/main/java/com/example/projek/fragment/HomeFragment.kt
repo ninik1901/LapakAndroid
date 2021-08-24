@@ -1,6 +1,7 @@
 package com.example.projek.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +15,9 @@ import com.example.projek.adapter.AdapterListEbook
 import com.example.projek.adapter.AdapterListKategori
 import com.example.projek.app.ApiConfig
 import com.example.projek.databinding.FragmentHomeBinding
-import com.example.projek.model.ModelImageSlider
 import com.example.projek.model.ResponModelEbook
 import com.example.projek.model.ResponseKategori
+import com.google.firebase.iid.FirebaseInstanceId
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,9 +33,10 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private lateinit var adapterListEbook: AdapterListEbook
     private lateinit var adapterListKategori: AdapterListKategori
+    lateinit var adapterImageSlider: AdapterImageSlider
     private var listEbook: ArrayList<ResponModelEbook.ModelEbook> = ArrayList()
     private var listKategori: ArrayList<ResponseKategori.ModelKategori> = ArrayList()
-    var listImage: ArrayList<ModelImageSlider> = ArrayList()
+    var listImage: ArrayList<ResponModelEbook.ModelEbook> = ArrayList()
 
 
     override fun onCreateView(
@@ -45,11 +47,11 @@ class HomeFragment : Fragment() {
 
 //        vpSlider = view.findViewById(R.id.vp_slider)
 //        rvEbook = view.findViewById(R.id.rv_Ebook)
-        listImage.add(ModelImageSlider("https://cdn.pixabay.com/photo/2016/10/14/16/38/book-1740512_960_720.png"))
-        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp4664615.jpg"))
-        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp8483511.jpg"))
-        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp1850842.png"))
-        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp8483514.png"))
+//        listImage.add(ModelImageSlider("https://cdn.pixabay.com/photo/2016/10/14/16/38/book-1740512_960_720.png"))
+//        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp4664615.jpg"))
+//        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp8483511.jpg"))
+//        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp1850842.png"))
+//        listImage.add(ModelImageSlider("https://wallpapercave.com/wp/wp8483514.png"))
 //
 //        val arraySlider= ArrayList<Int>()
 //        arraySlider.add(R.drawable.buku1)
@@ -73,11 +75,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
-        val adapterImageSlider = AdapterImageSlider(requireActivity(), listImage)
-        binding.imageSlider.setSliderAdapter(adapterImageSlider)
+
 
         getEbook()
         getKategori()
+        getEbookBaru()
+
+        Log.d("Toket", FirebaseInstanceId.getInstance().token.toString())
+
 
     }
 
@@ -107,6 +112,27 @@ class HomeFragment : Fragment() {
 
         )
     }
+
+    fun getEbookBaru() {
+        ApiConfig.instanceRetrofit.getEbookBaru().enqueue(object : Callback<ResponModelEbook> {
+            override fun onFailure(call: Call<ResponModelEbook>, t: Throwable) {
+
+            }
+
+            override fun onResponse(
+                call: Call<ResponModelEbook>,
+                response: Response<ResponModelEbook>
+            ) {
+                if (response.isSuccessful) {
+                    response.body()?.ebook?.let { listImage.addAll(it) }
+                    adapterImageSlider = activity?.let { AdapterImageSlider(it, listImage) }!!
+                    binding.imageSlider.setSliderAdapter(adapterImageSlider)
+
+                }
+            }
+        })
+    }
+
 
     fun getKategori() {
         ApiConfig.instanceRetrofit.getKategori().enqueue(object : Callback<ResponseKategori> {

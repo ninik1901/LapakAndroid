@@ -14,14 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BacaEbook"></activity>
-        <activity android:name=".InfoDonasi">
-
-        </activity>
+        <activity android:name=".DetailJadwal" />
+        <activity android:name=".BacaEbook" />
+        <activity android:name=".InfoDonasi" />
         <activity android:name=".BacaEbook2" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Pdf" />
         <activity android:name=".MainActivity">
@@ -34,14 +31,20 @@
         <activity android:name=".ResetPassword" />
         <activity android:name=".DonasiEbook" />
         <activity android:name=".EbookActivity" />
-        <activity android:name=".SplashActivity">
-
-        </activity>
+        <activity android:name=".SplashActivity" />
         <activity android:name=".KomentarActivity" />
-        <activity android:name=".PengajuanDonasi">
+        <activity android:name=".PengajuanDonasi" />
+        <activity android:name=".DonasiBukuCetak">
 
         </activity>
-        <activity android:name=".DonasiBukuCetak" />
+
+        <service
+            android:name=".helper.FirebaseNotification"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

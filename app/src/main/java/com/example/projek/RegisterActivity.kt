@@ -1,13 +1,12 @@
 package com.example.projek
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.projek.app.ApiConfig
 import com.example.projek.model.ResponModel
 import kotlinx.android.synthetic.main.activity_register.*
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -65,10 +64,18 @@ class RegisterActivity : AppCompatActivity() {
 
                 val respon = response.body()!!
 
-                if (respon.success == 1){
-                    Toast.makeText(this@RegisterActivity, "Error:"+respon.message, Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(this@RegisterActivity, "Success:"+respon.message, Toast.LENGTH_SHORT).show()
+                if (respon.success!!) {
+                    Toast.makeText(
+                        this@RegisterActivity,
+                        "Error:" + respon.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        this@RegisterActivity,
+                        "Success:" + respon.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 

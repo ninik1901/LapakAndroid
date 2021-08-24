@@ -53,16 +53,22 @@ class DonasiBukuCetak : AppCompatActivity() {
             startActivity(intent)
             return
         }
-
+        binding.pilihFile.setOnClickListener {
+            val i = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(i, 100)
+        }
         binding.btnCod.setOnClickListener {
             selectedImage?.let {
-//                uploadFile(
-//                )
+                uploadFile(
+                    "35",
+                    selectedImage!!
+                )
 
             }
         }
         binding.btnPaket.setOnClickListener {
-            uploadResi("35",binding.edtNomorResi.text.toString()
+            uploadResi(
+                "35", binding.edtNomorResi.text.toString()
             )
         }
         back()
@@ -115,7 +121,7 @@ class DonasiBukuCetak : AppCompatActivity() {
 
 
     private fun uploadFile(
-        id_donatur: String,  fileUri: Uri
+        id_donatur: String, fileUri: Uri
     ) {
         pDialog = SweetAlertDialog(this@DonasiBukuCetak, SweetAlertDialog.PROGRESS_TYPE)
         pDialog!!.progressHelper.barColor = Color.parseColor("#DA1F3E")
@@ -135,8 +141,9 @@ class DonasiBukuCetak : AppCompatActivity() {
 
         //creating a call and calling the upload image method
         ApiConfig.instanceRetrofit.donasi_cod(
-            requestFile,
-            descBody
+            descBody,
+            requestFile
+
         ).enqueue(object : Callback<ResponModel> {
             override fun onResponse(
                 call: Call<ResponModel>,
@@ -162,10 +169,12 @@ class DonasiBukuCetak : AppCompatActivity() {
 
             override fun onFailure(call: Call<ResponModel>, t: Throwable) {
                 Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                t.printStackTrace()
             }
         })
 
     }
+
     private fun uploadResi(
         id_donatur: String,
         buktidonasi: String

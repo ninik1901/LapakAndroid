@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.bumptech.glide.Glide
 import com.downloader.PRDownloader
 import com.example.projek.app.ApiConfig
 import com.example.projek.databinding.ActivityBacaEbookBinding
@@ -28,7 +29,11 @@ class BacaEbook : AppCompatActivity() {
         PRDownloader.initialize(applicationContext)
         if (intent.hasExtra("detail")) {
             detailEbook = intent.getParcelableExtra("detail")!!
-
+            Glide.with(this@BacaEbook)
+                .load("https://ninik.panjisastra.my.id/img/buku/" + detailEbook.foto_cover)
+                .fitCenter()
+                .dontAnimate()
+                .into(binding.detailGambar)
             binding.detailJudul.text = detailEbook.judul_buku
             binding.detailNamaPengarang.text = detailEbook.nama_pengarang
             binding.detailJumlahBaca.text = detailEbook.jumlah_baca.toString()

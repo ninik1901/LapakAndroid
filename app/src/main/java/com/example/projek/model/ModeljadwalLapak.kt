@@ -16,7 +16,7 @@ class ModeljadwalLapak {
         val nama_kegiatan: String? = null,
         val tanggal: String? = null,
         val updated_at: String? = null,
-        val user_id: Any
+        val user_id: Int? = null
     ) : Parcelable {
         constructor(parcel: Parcel) : this(
             parcel.readString(),
@@ -28,7 +28,7 @@ class ModeljadwalLapak {
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            TODO("user_id")
+            parcel.readValue(Int::class.java.classLoader) as? Int
         )
 
         override fun writeToParcel(parcel: Parcel, flags: Int) {

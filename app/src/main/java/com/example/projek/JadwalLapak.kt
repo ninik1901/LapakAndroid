@@ -35,7 +35,7 @@ class JadwalLapak : Fragment() {
 
                 if (response.isSuccessful) {
                     response.body()?.lapak?.let { listJadwal.addAll(it) }
-                    adapterListLapak = AdapterListLapak(listJadwal)
+                    adapterListLapak = AdapterListLapak(listJadwal, requireActivity())
                     binding.rvJadwalLapak.apply {
                         layoutManager = LinearLayoutManager(requireActivity())
                         adapter = adapterListLapak
