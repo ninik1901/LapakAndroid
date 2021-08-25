@@ -23,7 +23,7 @@ class FirebaseNotification : FirebaseMessagingService() {
         super.onMessageReceived(remoteMessage)
         Log.d(TAG, "From: " + remoteMessage.from)
         if (remoteMessage.data.size > 0) {
-            Log.d(TAG, "Message data payload: " + remoteMessage.data.size)
+            Log.d(TAG, "Message data payload: " + remoteMessage.data.toString())
             val message = remoteMessage.data["body"]
             val title = remoteMessage.data["title"]
             val jenis = remoteMessage.data["jenis"]

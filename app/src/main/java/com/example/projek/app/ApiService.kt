@@ -22,7 +22,8 @@ interface ApiService {
     @POST("pengguna/login")
     fun login(
         @Field("email") email: String,
-        @Field("password") password: String
+        @Field("password") password: String,
+        @Field("fcm_token") fcm_token: String
     ): Call<ResponModel>
 
     @GET("tampil_ebook")

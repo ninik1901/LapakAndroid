@@ -26,6 +26,10 @@ class DetailJadwal : AppCompatActivity() {
         val intent = intent
         if (intent.hasExtra("detail")) {
             detail = intent.getParcelableExtra("detail")!!
+            binding.detailKegiatan.text = detail.nama_kegiatan
+            binding.detailTanggal.text = detail.tanggal
+            binding.detailRelawan.text = detail.jumlah_relawan.toString()
+            binding.detailLokasi.text = detail.lokasi
         }
         binding.btnRelawan.setOnClickListener {
             daftarRelawan(detail.id.toString())

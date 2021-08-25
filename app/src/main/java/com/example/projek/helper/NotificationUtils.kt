@@ -12,12 +12,14 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.example.projek.DonasiBukuCetak
 import com.example.projek.DonasiEbook
-import com.example.projek.JadwalLapak
+import com.example.projek.MainActivity
 import com.example.projek.R
 
 class NotificationUtils(var context: Context) {
-    private lateinit var p: PendingIntent
-    private lateinit var i: Intent
+    private var i: Intent = Intent(context.applicationContext, MainActivity::class.java)
+    private var p: PendingIntent =
+        PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT)
+
     fun showNotification(
         title: String?,
         message: String?,
@@ -40,7 +42,8 @@ class NotificationUtils(var context: Context) {
                     PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT)
             }
             jenis.equals("jadwal_baru") -> {
-                i = Intent(context.applicationContext, JadwalLapak::class.java)
+                i = Intent(context.applicationContext, MainActivity::class.java)
+                i.putExtra("jadwal", "jadwal_baru")
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 p =
                     PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT)

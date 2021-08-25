@@ -1,5 +1,6 @@
 package com.example.projek
 
+
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -20,6 +21,7 @@ import com.example.projek.fragment.NotifFragment
 import com.example.projek.fragment.SimpanFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,7 +66,10 @@ class MainActivity : AppCompatActivity() {
 //        setUpBottomNav()
 //        bottomNavigationView = findViewById(R.id.bottom_nav_view)
 //        NavigationUI.setupWithNavController(bottomNavigationView,navController)
+        if (intent.hasExtra("jadwal")) {
 
+            navController.navigate(R.id.nav_jadwal)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

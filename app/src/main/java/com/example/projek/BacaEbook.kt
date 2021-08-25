@@ -61,6 +61,32 @@ class BacaEbook : AppCompatActivity() {
                 i.putExtra("pdf", detailEbook)
                 startActivity(i)
             }
+            binding.btnSimpan.setOnClickListener {
+                com.example.projek.app.SessionManager.getIdUser(applicationContext)?.let { it1 ->
+                    ApiConfig.instanceRetrofit.simpan_buku(
+                        it1,
+                        detailEbook.id.toString()
+
+                    ).enqueue(object :
+                        Callback<ResponModel> {
+
+                        override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                        }
+
+                        override fun onResponse(
+                            call: Call<ResponModel>,
+                            response: Response<ResponModel>
+                        ) {
+                            Toast.makeText(
+                                this@BacaEbook,
+                                response.body()?.message,
+                                Toast.LENGTH_LONG
+                            )
+                                .show()
+                        }
+                    })
+                }
+            }
         }
         if (intent.hasExtra("simpan")) {
             detailEbookSimpan = intent.getParcelableExtra("simpan")!!
@@ -94,24 +120,34 @@ class BacaEbook : AppCompatActivity() {
                 i.putExtra("pdf", detailEbookSimpan)
                 startActivity(i)
             }
-        }
-        binding.btnSimpan.setOnClickListener {
-            ApiConfig.instanceRetrofit.simpan_buku(
-                "13",
-                detailEbookSimpan.id.toString()
+            binding.btnSimpan.setOnClickListener {
+                com.example.projek.app.SessionManager.getIdUser(applicationContext)?.let { it1 ->
+                    ApiConfig.instanceRetrofit.simpan_buku(
+                        it1,
+                        detailEbookSimpan.id.toString()
 
-            ).enqueue(object :
-                Callback<ResponModel> {
+                    ).enqueue(object :
+                        Callback<ResponModel> {
 
-                override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                        override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                        }
+
+                        override fun onResponse(
+                            call: Call<ResponModel>,
+                            response: Response<ResponModel>
+                        ) {
+                            Toast.makeText(
+                                this@BacaEbook,
+                                response.body()?.message,
+                                Toast.LENGTH_LONG
+                            )
+                                .show()
+                        }
+                    })
                 }
-
-                override fun onResponse(call: Call<ResponModel>, response: Response<ResponModel>) {
-                    Toast.makeText(this@BacaEbook, response.body()?.message, Toast.LENGTH_LONG)
-                        .show()
-                }
-            })
+            }
         }
+
     }
 }
 
