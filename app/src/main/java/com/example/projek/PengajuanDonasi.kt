@@ -89,13 +89,16 @@ class PengajuanDonasi : AppCompatActivity() {
             ) {
                 if (i > 0) {
                     if (i == 2) {
-                        buku = pilihan[i]
+                        buku = "buku-cetak"
                         binding.layoutFile.visibility = View.VISIBLE
+                        binding.sinopsis.visibility = View.GONE
+                        binding.sp2.visibility = View.VISIBLE
 
                     } else if (i == 1) {
-                        buku = pilihan[i]
+                        buku = pilihan[i].toLowerCase()
                         binding.layoutFile.visibility = View.GONE
-
+                        binding.sp2.visibility = View.GONE
+                        binding.sinopsis.visibility = View.VISIBLE
                     }
                 }
             }

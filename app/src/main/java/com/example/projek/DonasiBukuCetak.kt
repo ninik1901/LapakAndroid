@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -39,6 +40,7 @@ class DonasiBukuCetak : AppCompatActivity() {
         binding = ActivityDonasiBukuCetakBinding.inflate(layoutInflater)
         setContentView(binding.root)
         idnya = intent.getStringExtra("id").toString()
+        Log.d("idnya", idnya)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.READ_EXTERNAL_STORAGE
@@ -188,12 +190,12 @@ class DonasiBukuCetak : AppCompatActivity() {
         pDialog!!.titleText = "Mohon Tunggu..."
         showDialog()
 
-        val descBody = RequestBody.create(MediaType.parse("text/plain"), id_donatur)
-        val descBody2 = RequestBody.create(MediaType.parse("text/plain"), buktidonasi)
+//        val descBody = RequestBody.create(MediaType.parse("text/plain"), id_donatur)
+//        val descBody2 = RequestBody.create(MediaType.parse("text/plain"), buktidonasi)
 
         ApiConfig.instanceRetrofit.donasi_paket(
-            descBody,
-            descBody2
+            id_donatur,
+            buktidonasi
         ).enqueue(object :
             Callback<ResponModel> {
 
@@ -206,13 +208,13 @@ class DonasiBukuCetak : AppCompatActivity() {
                     if (response.body()?.message.equals("success")) {
                         Toast.makeText(
                             applicationContext,
-                            "Some error occurred...",
+                            "Berhasil Upload Resi",
                             Toast.LENGTH_LONG
                         ).show()
                     } else {
                         Toast.makeText(
                             applicationContext,
-                            "File Uploaded Successfully...",
+                            "Gagal Upload Resi",
                             Toast.LENGTH_LONG
                         ).show()
                     }

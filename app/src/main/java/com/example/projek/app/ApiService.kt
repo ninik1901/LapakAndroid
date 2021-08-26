@@ -147,8 +147,8 @@ interface ApiService {
     @FormUrlEncoded
     @POST("donasi_buku")
     fun donasi_paket(
-        @Field("id_donasi") id_donasi: RequestBody?,
-        @Field("bukti_donasi") bukti_donasi: RequestBody?
+        @Field("id_donasi") id_donasi: String?,
+        @Field("bukti_donasi") bukti_donasi: String?
     ): Call<ResponModel>
 
     @Multipart
