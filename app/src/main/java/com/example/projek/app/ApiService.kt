@@ -56,6 +56,12 @@ interface ApiService {
     ): Call<ModelInfoPengguna>
 
     @FormUrlEncoded
+    @POST("tampil_kategoriebook")
+    fun getKategoriEbook(
+        @Field("kategori") kategori: String
+    ): Call<ResponseKategoriEbook>
+
+    @FormUrlEncoded
     @POST("daftar_simpan")
     fun simpan_buku(
         @Field("user_id") user_id: String,

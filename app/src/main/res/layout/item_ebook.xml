@@ -31,8 +31,9 @@
             android:id="@+id/judul_Buku"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
 <!--        <ImageView-->
 <!--            android:id="@+id/item_lihat"-->

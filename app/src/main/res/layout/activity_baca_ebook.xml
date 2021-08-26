@@ -4,20 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BacaEbook">
-    
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/biru">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Detail Ebook"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <LinearLayout
         android:id="@+id/layout_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/appBarLayout"
         android:orientation="vertical"
         android:padding="10dp">
-        
+
         <ImageView
+            android:id="@+id/detailGambar"
             android:layout_width="150dp"
             android:layout_height="200dp"
-            android:src="@drawable/buku2"
-            android:id="@+id/detailGambar"
-            android:layout_marginLeft="100dp"/>
+            android:layout_marginLeft="100dp"
+            android:src="@drawable/buku2" />
 
         <TextView
             android:id="@+id/detailJudul"

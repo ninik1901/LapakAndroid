@@ -2,9 +2,11 @@ package com.example.projek.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projek.KategoriEbook
 import com.example.projek.R
 import com.example.projek.databinding.ActivityCardKategoriBinding
 import com.example.projek.model.ResponseKategori
@@ -36,6 +38,11 @@ class AdapterListKategori(
         holder.binding.judulKategori.text = dataset[position].nama_kategori
         if (dataset[position].nama_kategori.equals("novel")) {
             holder.binding.imageKategori.setImageDrawable(context.getDrawable(R.drawable.novel))
+        }
+        holder.itemView.setOnClickListener {
+            val i = Intent(context, KategoriEbook::class.java)
+            i.putExtra("kategori", dataset[position])
+            context.startActivity(i)
         }
     }
 }

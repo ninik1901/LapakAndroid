@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".KategoriEbook"></activity>
         <activity android:name=".DetailJadwal" />
         <activity android:name=".BacaEbook" />
         <activity android:name=".InfoDonasi" />
@@ -21,9 +22,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Pdf" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".ResetPassword" />
         <activity android:name=".DonasiEbook" />
         <activity android:name=".SplashActivity">
@@ -35,8 +34,7 @@
         </activity>
         <activity android:name=".KetentuanDonasi" />
         <activity android:name=".PengajuanDonasi" />
-        <activity android:name=".DonasiBukuCetak">
-        </activity>
+        <activity android:name=".DonasiBukuCetak"></activity>
 
         <service
             android:name=".helper.FirebaseNotification"
@@ -45,6 +43,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/logo" />

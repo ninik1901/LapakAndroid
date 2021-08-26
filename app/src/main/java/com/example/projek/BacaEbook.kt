@@ -12,6 +12,7 @@ import com.example.projek.databinding.ActivityBacaEbookBinding
 import com.example.projek.model.ModelResponseSimpan
 import com.example.projek.model.ResponModel
 import com.example.projek.model.ResponModelEbook
+import com.example.projek.model.ResponseKategoriEbook
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +24,7 @@ class BacaEbook : AppCompatActivity() {
     lateinit var pDialog: SweetAlertDialog
     lateinit var detailEbook: ResponModelEbook.ModelEbook
     lateinit var detailEbookSimpan: ModelResponseSimpan.ModelSimpan
+    lateinit var detailKategori: ResponseKategoriEbook.kategoriEbook
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,7 +119,7 @@ class BacaEbook : AppCompatActivity() {
                     }
                 })
                 val i = Intent(this, Pdf::class.java)
-                i.putExtra("pdf", detailEbookSimpan)
+                i.putExtra("pdfSimpan", detailEbookSimpan)
                 startActivity(i)
             }
             binding.btnSimpan.setOnClickListener {
@@ -125,6 +127,65 @@ class BacaEbook : AppCompatActivity() {
                     ApiConfig.instanceRetrofit.simpan_buku(
                         it1,
                         detailEbookSimpan.id.toString()
+
+                    ).enqueue(object :
+                        Callback<ResponModel> {
+
+                        override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                        }
+
+                        override fun onResponse(
+                            call: Call<ResponModel>,
+                            response: Response<ResponModel>
+                        ) {
+                            Toast.makeText(
+                                this@BacaEbook,
+                                response.body()?.message,
+                                Toast.LENGTH_LONG
+                            )
+                                .show()
+                        }
+                    })
+                }
+            }
+        }
+        if (intent.hasExtra("kategori")) {
+            detailKategori = intent.getParcelableExtra("kategori")!!
+            Glide.with(this@BacaEbook)
+                .load("https://ta.poliwangi.ac.id/~ti18099/public/img/buku/" + detailKategori.foto_cover)
+                .fitCenter()
+                .dontAnimate()
+                .into(binding.detailGambar)
+            binding.detailJudul.text = detailKategori.judul_buku
+            binding.detailNamaPengarang.text = detailKategori.nama_pengarang
+//            binding.detailJumlahBaca.text = detailKategori..toString()
+            binding.btnBaca.setOnClickListener {
+                ApiConfig.instanceRetrofit.tambah_baca(
+                    detailKategori.buku_id.toString()
+
+                ).enqueue(object :
+                    Callback<ResponModel> {
+
+                    override fun onFailure(call: Call<ResponModel>, t: Throwable) {
+                    }
+
+                    override fun onResponse(
+                        call: Call<ResponModel>,
+                        response: Response<ResponModel>
+                    ) {
+                        Toast.makeText(this@BacaEbook, response.body()?.message, Toast.LENGTH_LONG)
+                            .show()
+                    }
+                })
+                val i = Intent(this, Pdf::class.java)
+                i.putExtra("pdfKategori", detailKategori)
+                startActivity(i)
+            }
+            binding.btnSimpan.setOnClickListener {
+                com.example.projek.app.SessionManager.getIdUser(applicationContext)?.let { it1 ->
+                    ApiConfig.instanceRetrofit.simpan_buku(
+                        it1,
+                        detailKategori.buku_id.toString()
 
                     ).enqueue(object :
                         Callback<ResponModel> {

@@ -13,7 +13,9 @@ import com.downloader.OnDownloadListener
 import com.downloader.PRDownloader
 import com.example.projek.app.ApiConfig
 import com.example.projek.databinding.ActivityPdfBinding
+import com.example.projek.model.ModelResponseSimpan
 import com.example.projek.model.ResponModelEbook
+import com.example.projek.model.ResponseKategoriEbook
 import java.io.File
 
 class Pdf : AppCompatActivity() {
@@ -26,6 +28,38 @@ class Pdf : AppCompatActivity() {
         PRDownloader.initialize(applicationContext)
         if (intent.hasExtra("pdf")) {
             val detailEbook: ResponModelEbook.ModelEbook? = intent.getParcelableExtra("pdf")
+            if (detailEbook != null) {
+                try {
+                    val fileName = "myFile.pdf"
+                    downloadPdfFromInternet(
+                        ApiConfig.BASE_URL_FILE + detailEbook.file_ebook,
+                        getRootDirPath(this),
+                        fileName
+                    )
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
+        if (intent.hasExtra("pdfSimpan")) {
+            val detailEbook: ModelResponseSimpan.ModelSimpan? =
+                intent.getParcelableExtra("pdfSimpan")
+            if (detailEbook != null) {
+                try {
+                    val fileName = "myFile.pdf"
+                    downloadPdfFromInternet(
+                        ApiConfig.BASE_URL_FILE + detailEbook.file_ebook,
+                        getRootDirPath(this),
+                        fileName
+                    )
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
+        if (intent.hasExtra("pdfKategori")) {
+            val detailEbook: ResponseKategoriEbook.kategoriEbook? =
+                intent.getParcelableExtra("pdfKategori")
             if (detailEbook != null) {
                 try {
                     val fileName = "myFile.pdf"
