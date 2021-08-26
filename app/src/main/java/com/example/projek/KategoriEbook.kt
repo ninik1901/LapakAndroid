@@ -1,7 +1,10 @@
 package com.example.projek
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projek.adapter.AdapterKategoriEbook
 import com.example.projek.app.ApiConfig
@@ -26,6 +29,7 @@ class KategoriEbook : AppCompatActivity() {
             kategori = intent.getParcelableExtra("kategori")!!
         }
         getKategoriEbook(kategori.id.toString())
+        back()
     }
 
     fun getKategoriEbook(kategori: String) {
@@ -51,5 +55,15 @@ class KategoriEbook : AppCompatActivity() {
             }
 
             )
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun back() {
+        val toolbar: Toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        toolbar.navigationIcon = resources.getDrawable(R.drawable.ic_arrow_back_black_24dp)
+        toolbar.setNavigationOnClickListener { v: View? -> onBackPressed() }
     }
 }
