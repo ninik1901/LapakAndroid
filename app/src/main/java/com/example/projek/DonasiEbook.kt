@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.projek.app.ApiConfig
-import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityDonasiEbookBinding
 import com.example.projek.model.ResponModel
 import com.nbsp.materialfilepicker.MaterialFilePicker
@@ -41,12 +40,14 @@ class DonasiEbook : AppCompatActivity() {
     private lateinit var binding: ActivityDonasiEbookBinding
     var selectedImage: Uri? = null
     var pdfPath: String = ""
-
+    var idnya: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDonasiEbookBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        idnya = intent.getStringExtra("id").toString()
+        Log.d("as", idnya)
         binding.pilihFile.setOnClickListener {
             //            val intent = Intent()
 //            intent.action = Intent.ACTION_GET_CONTENT
@@ -56,8 +57,7 @@ class DonasiEbook : AppCompatActivity() {
             launchPicker()
         }
         binding.btnDonasiEbook.setOnClickListener {
-            SessionManager.getIdUser(applicationContext)
-                ?.let { it1 -> uploadFile(it1, binding.edtJudulEbook.text.toString(), pdfPath) }
+            uploadFile(idnya, binding.edtJudulEbook.text.toString(), pdfPath)
 
         }
     }

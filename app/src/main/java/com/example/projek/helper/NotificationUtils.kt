@@ -23,13 +23,15 @@ class NotificationUtils(var context: Context) {
     fun showNotification(
         title: String?,
         message: String?,
-        jenis: String?
+        jenis: String?,
+        id: String?
     ) {
 
 
         when {
             jenis.equals("pengajuan_buku") -> {
                 i = Intent(context.applicationContext, DonasiBukuCetak::class.java)
+                i.putExtra("id", id)
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 p =
                     PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -37,6 +39,7 @@ class NotificationUtils(var context: Context) {
             }
             jenis.equals("pengajuan_ebook") -> {
                 i = Intent(context.applicationContext, DonasiEbook::class.java)
+                i.putExtra("id", id)
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 p =
                     PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT)

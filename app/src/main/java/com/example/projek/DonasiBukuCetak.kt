@@ -19,7 +19,6 @@ import androidx.core.content.ContextCompat
 import androidx.loader.content.CursorLoader
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.projek.app.ApiConfig
-import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityDonasiBukuCetakBinding
 import com.example.projek.model.ResponModel
 import okhttp3.MediaType
@@ -34,12 +33,12 @@ class DonasiBukuCetak : AppCompatActivity() {
     var selectedImage: Uri? = null
 
     var pDialog: SweetAlertDialog? = null
-
+    var idnya: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDonasiBukuCetakBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        idnya = intent.getStringExtra("id").toString()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.READ_EXTERNAL_STORAGE
@@ -60,21 +59,21 @@ class DonasiBukuCetak : AppCompatActivity() {
         }
         binding.btnCod.setOnClickListener {
             selectedImage?.let {
-                SessionManager.getIdUser(applicationContext)?.let { it1 ->
-                    uploadFile(
-                        it1,
-                        selectedImage!!
-                    )
-                }
+
+                uploadFile(
+                    idnya,
+                    selectedImage!!
+                )
+
 
             }
         }
         binding.btnPaket.setOnClickListener {
-            SessionManager.getIdUser(applicationContext)?.let { it1 ->
+
                 uploadResi(
-                    it1, binding.edtNomorResi.text.toString()
+                    idnya, binding.edtNomorResi.text.toString()
                 )
-            }
+
         }
         back()
     }

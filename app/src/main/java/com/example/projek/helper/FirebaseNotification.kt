@@ -27,6 +27,7 @@ class FirebaseNotification : FirebaseMessagingService() {
             val message = remoteMessage.data["body"]
             val title = remoteMessage.data["title"]
             val jenis = remoteMessage.data["jenis"]
+            val id = remoteMessage.data["id"]
 
             if (message != null) {
                 if (title != null) {
@@ -35,7 +36,7 @@ class FirebaseNotification : FirebaseMessagingService() {
                             showNotificationBiasa(message, title, this)
 
                         } else {
-                            showNotification(message, title, jenis, this)
+                            showNotification(message, title, jenis, id!!, this)
 
                         }
                     }
@@ -61,13 +62,15 @@ class FirebaseNotification : FirebaseMessagingService() {
         title: String,
         message: String,
         jenis: String,
+        id: String,
         context: Context
     ) {
 
         NotificationUtils(context).showNotification(
             title,
             message,
-            jenis
+            jenis,
+            id
         )
     }
 
