@@ -37,7 +37,7 @@ class AdapterListSimpan(
         holder.binding.tvItemNama.text = dataset[position].judul_buku
         if (dataset[position].foto_cover != null) {
             Glide.with(context)
-                .load("https://ninik.panjisastra.my.id/img/buku/${dataset[position].foto_cover}")
+                .load("http://192.168.43.114/projectta/public/img/buku/${dataset[position].foto_cover}")
                 .fitCenter()
                 .dontAnimate()
                 .into(holder.binding.image)

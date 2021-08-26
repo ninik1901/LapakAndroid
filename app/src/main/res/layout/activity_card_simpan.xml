@@ -37,19 +37,20 @@
             android:layout_below="@+id/tv_item_nama"
             android:layout_width="37dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
+            android:layout_marginLeft="120dp"
             android:src="@drawable/ic_remove_red_eye_black_24dp" />
 
         <TextView
+            android:id="@+id/detail_baca"
             android:layout_below="@+id/tv_item_nama"
             android:layout_width="69dp"
             android:layout_height="wrap_content"
             android:padding="3dp"
             android:text="100K"
-            android:layout_marginLeft="125dp"/>
+            android:layout_marginLeft="150dp"/>
 
         <TextView
-            android:id="@+id/tv_item_tanggal"
+            android:id="@+id/tv_item_sinopsis"
             android:layout_width="220dp"
             android:layout_height="61dp"
             android:layout_below="@id/tv_item_nama"

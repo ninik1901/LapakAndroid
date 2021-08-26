@@ -1,7 +1,9 @@
 package com.example.projek
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.projek.app.ApiConfig
 import com.example.projek.app.SessionManager
 import com.example.projek.databinding.ActivityInfoDonasiBinding
@@ -68,5 +70,17 @@ class InfoDonasi : AppCompatActivity() {
                 }
             }
         })
+
+        back()
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun back() {
+        val toolbar: Toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+//        toolbar.navigationIcon = resources.getDrawable(R.drawable.ic_arrow_back_black_24dp)
+        toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 }

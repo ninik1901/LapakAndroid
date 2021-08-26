@@ -32,7 +32,7 @@ class BacaEbook : AppCompatActivity() {
         if (intent.hasExtra("detail")) {
             detailEbook = intent.getParcelableExtra("detail")!!
             Glide.with(this@BacaEbook)
-                .load("https://ninik.panjisastra.my.id/img/buku/" + detailEbook.foto_cover)
+                .load("https://ta.poliwangi.ac.id/~ti18099/public/img/buku/" + detailEbook.foto_cover)
                 .fitCenter()
                 .dontAnimate()
                 .into(binding.detailGambar)
@@ -91,7 +91,7 @@ class BacaEbook : AppCompatActivity() {
         if (intent.hasExtra("simpan")) {
             detailEbookSimpan = intent.getParcelableExtra("simpan")!!
             Glide.with(this@BacaEbook)
-                .load("https://ninik.panjisastra.my.id/img/buku/" + detailEbookSimpan.foto_cover)
+                .load("https://ta.poliwangi.ac.id/~ti18099/public/img/buku/" + detailEbookSimpan.foto_cover)
                 .fitCenter()
                 .dontAnimate()
                 .into(binding.detailGambar)
@@ -150,5 +150,3 @@ class BacaEbook : AppCompatActivity() {
 
     }
 }
-
-
