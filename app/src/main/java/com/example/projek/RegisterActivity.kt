@@ -67,13 +67,13 @@ class RegisterActivity : AppCompatActivity() {
                 if (!respon.success!!) {
                     Toast.makeText(
                         this@RegisterActivity,
-                        "Error:" + respon.message,
+                        "Success:" + respon.message,
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
                     Toast.makeText(
                         this@RegisterActivity,
-                        "Success:" + respon.message,
+                        "Eror:" + respon.message,
                         Toast.LENGTH_SHORT
                     ).show()
                     startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))

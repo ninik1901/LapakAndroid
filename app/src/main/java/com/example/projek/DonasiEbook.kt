@@ -1,5 +1,6 @@
 package com.example.projek
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.projek.app.ApiConfig
@@ -23,22 +25,9 @@ import retrofit2.Response
 import java.io.File
 import java.util.regex.Pattern
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [EbookDonasi.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DonasiEbook : AppCompatActivity() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
     private lateinit var binding: ActivityDonasiEbookBinding
-    var selectedImage: Uri? = null
+//    var selectedImage: Uri? = null
     var pdfPath: String = ""
     var idnya: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +49,17 @@ class DonasiEbook : AppCompatActivity() {
             uploadFile(idnya, binding.edtJudulEbook.text.toString(), pdfPath)
 
         }
+        back()
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun back() {
+        val toolbar: Toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+//        toolbar.navigationIcon = resources.getDrawable(R.drawable.ic_arrow_back_black_24dp)
+        toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
 

@@ -26,6 +26,14 @@ interface ApiService {
         @Field("fcm_token") fcm_token: String
     ): Call<ResponModel>
 
+    @FormUrlEncoded
+    @POST("pengguna/reset")
+    fun reset(
+        @Field("email") email: String,
+        @Field("nomor_telepon") nomor_telepon: String,
+        @Field("password") password: String
+    ): Call<ResponModel>
+
     @GET("tampil_ebook")
     fun getAllEbook(): Call<ResponModelEbook>
 
