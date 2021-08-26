@@ -131,7 +131,7 @@ class PengajuanDonasi : AppCompatActivity() {
 
         binding.btnKirimPengajuan.setOnClickListener {
 
-            if (buku == "Buku") {
+            if (buku == "buku-cetak") {
                 selectedImage?.let {
                     SessionManager.getIdUser(applicationContext)?.let { it1 ->
                         uploadFile(
